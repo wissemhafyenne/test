@@ -1,0 +1,22 @@
+<!-- Start:: cover [[ Find at scss/components/cover.scss ]] -->
+<div class="cover cover--round">
+  <div class="cover__image">
+    <a [routerLink]="[data.detailsRoute]">
+      <img [src]="data.cover" [alt]="data.name" />
+    </a>
+    <div class="cover__image__content">
+      <a
+        [routerLink]="[data.detailsRoute]"
+        class="cover__title mb-1 fs-6 text-truncate"
+        >{{ data.name }}</a
+      >
+      <ng-container *ngIf="viewData">
+        <span class="cover__subtitle">
+          {{ data.songs.length }} Evenement
+          {{ data.likes ? "| " + data.likes + " Favorites" : "" }}
+        </span>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<!-- End:: cover -->

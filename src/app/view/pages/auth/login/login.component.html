@@ -1,0 +1,48 @@
+<!-- Start:: wrapper [[ Find at scss/framework/wrapper.scss ]] -->
+<div id="wrapper">
+    <!-- Start:: auth [[ Find at scss/framework/auth.scss ]] -->
+    <div class="auth py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-7 col-md-9 col-sm-11 mx-auto">
+                    <div class="card">
+                        <div class="card-body p-sm-5">
+                            <h4>Login to <span class="text-primary">Listen</span></h4>
+                            <p class="fs-6">Welcome back! login with your data that you entered during registration</p>
+                            <form class="mt-5" [formGroup]="form">
+                                <div class="mb-5">
+                                    <button type="button" class="btn btn-default w-100" (click)="googleLogin()">
+                                        <span class="btn__wrap">
+                                            <i class="ri-google-fill"></i>
+                                            <span class="ms-2">Login with Google</span>
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="auth__or mx-auto fw-medium"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="username" class="form-label fw-medium">Email</label>
+                                    <input type="email" id="username" class="form-control" formControlName="email" appValidation>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="password" class="form-label fw-medium">Password</label>
+                                    <input type="password" id="password" class="form-control" formControlName="password" appValidation>
+                                </div>
+                                <div class="mb-4 text-end">
+                                    <a routerLink="/forgot-password" class="link-primary fw-medium">Forgot Password?</a>
+                                </div>
+                                <div class="mb-5">
+                                    <input type="submit" class="btn btn-primary w-100" value="Login" [disabled]="form.invalid" (click)="login()">
+                                </div>
+                                <p>Not registered yet? <br><a routerLink="/register" class="fw-medium">Register</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End:: auth -->
+</div>
+<!-- End:: wrapper -->

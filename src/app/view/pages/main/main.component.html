@@ -1,0 +1,15 @@
+
+<!-- Start:: wrapper [[ Find at scss/framework/wrapper.scss ]] -->
+<div id="wrapper">
+
+    <!-- Main header -->
+    <app-header [headerView]="headerView.landing"></app-header>
+
+    <!-- Page content -->
+    <router-outlet></router-outlet>
+
+    <!-- Main footer -->
+    <app-footer [footerView]="footerView.landing"></app-footer>
+    
+</div>
+<!-- End:: wrapper -->

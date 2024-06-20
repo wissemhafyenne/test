@@ -1,0 +1,67 @@
+
+<!-- Bind footer view according input from parent -->
+<ng-container [ngTemplateOutlet]="footerTemplate ? footerTemplate : null"></ng-container>
+
+
+<!-- Landing footer view -->
+<ng-template #landingFooter>
+    <div class="container">
+        <!-- Start:: newsletter [[ Find at scss/base/core.scss ]] -->
+        <!--hasit zeyda donc fasakhtha
+        <div class="newsletter text-white">
+            <div class="col-xl-7 col-lg-10 fs-5 mx-auto text-center">
+                <h2 class="text-white">Join with <span class="newsletter__title-text">{{brand.name}}</span></h2>
+                <p>Combining multiple subscription-based services like Netflix, Deezer, and others into a single app that offers a low price subscription.</p>
+                <a routerLink="/register" class="btn btn-lg btn-default mt-3">Register now</a>
+            </div>
+        </div> -->
+
+        <!-- End:: newsletter -->
+    </div>
+
+    <!-- Start:: footer [[ Find at scss/framework/footer.scss ]] -->
+    <footer id="main_footer">
+        <div class="container">
+            <div class="col-xl-6 col-lg-8 col-md-10 mx-auto text-center">
+                <h3 class="mb-5"><span class="text-primary">Millions of subscriptions</span> that you access with your basic information.</h3>
+                <ng-container [ngTemplateOutlet]="appDownloadButtons" [ngTemplateOutletContext]="{name: 'default'}"></ng-container>
+            </div>
+            <div class="last-footer py-4">
+                <span>&copy; {{year}} {{brand.name}}. All rights reserved.</span>
+                <ul class="social">
+                    <li *ngFor="let item of social">
+                        <a [href]="item.link" [innerHTML]="item.icon" target="_blank"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- End:: footer -->
+</ng-template>
+
+<!-- App footer view -->
+<ng-template #appFooter>
+    <!-- Start:: footer [[ Find at scss/framework/footer.scss ]] -->
+    <footer id="footer">
+        <div class="container">
+            <div class="text-center mb-4 pb-2">
+                <a href="mailto:{{brand.email}}" class="display-5 email">{{brand.email}}</a>
+            </div>
+            <ng-container [ngTemplateOutlet]="appDownloadButtons" [ngTemplateOutletContext]="{name: 'primary'}"></ng-container>
+        </div>
+    </footer>
+    <!-- End:: footer -->
+</ng-template>
+
+
+<!-- Template for app download buttons -->
+<ng-template #appDownloadButtons let-name="name">
+    <div class="app-btn-group" *ngIf="app.length">
+        <a [href]="item.link" class="btn btn-lg btn-{{name}}" *ngFor="let item of app">
+            <span class="btn__wrap" [innerHTML]="appButtonHTML(item)">
+                <i class="ri-google-play-fill"></i>
+                <span class="ms-2">{{item.name}}</span>
+            </span>
+        </a>
+    </div>
+</ng-template>
