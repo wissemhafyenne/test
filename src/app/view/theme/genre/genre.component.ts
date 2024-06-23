@@ -1,10 +1,6 @@
-// Angular
+
 import { Component, OnInit } from '@angular/core';
-
-// Services
 import { GenreService } from './../../../core/services/api/genre.service';
-
-// Constant classes
 import { HttpStatus } from 'src/app/core/constants/http-status';
 
 

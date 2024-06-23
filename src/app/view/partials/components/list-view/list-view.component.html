@@ -1,39 +1,39 @@
-
 <div class="list__item">
     <div class="list__cover">
-        <img [src]="data.cover" [alt]="data.name">
-        <a (click)="play($event)" class="btn btn-play btn-sm btn-default btn-icon rounded-pill" *ngIf="viewPlayButton" aria-label="Play pause" [attr.data-play-id]="data.id">
-            <i class="ri-play-fill icon-play"></i>
-            <i class="ri-pause-fill icon-pause"></i>
-        </a>
+      <img [src]="data.cover" [alt]="data.name">
+      <a (click)="play($event)" class="btn btn-play btn-sm btn-default btn-icon rounded-pill" *ngIf="viewPlayButton" aria-label="Play pause" [attr.data-play-id]="data.id">
+        <i class="ri-play-fill icon-play"></i>
+        <i class="ri-pause-fill icon-pause"></i>
+      </a>
     </div>
-    
+  
     <div class="list__content">
-        <a [routerLink]="data.detailsRoute" class="list__title text-truncate">{{data.name}}</a>
-        <p class="list__subtitle text-truncate" *ngIf="data.artists">
-            <ng-container *ngFor="let artist of data.artists; last as isLast">
-                <a [routerLink]="'/app/artist/' + artist.id + '/details'">{{artist.name}}</a>{{!isLast ? ', ' : ''}}
-            </ng-container>
-        </p>
+      <a [routerLink]="data.detailsRoute" class="list__title text-truncate">{{data.name}}</a>
+      <p class="list__subtitle text-truncate" *ngIf="data.artists">
+        <ng-container *ngFor="let artist of data.artists; last as isLast">
+          <a [routerLink]="'/app/artist/' + artist.id + '/details'">{{artist.name}}</a>{{!isLast ? ', ' : ''}}
+        </ng-container>
+      </p>
     </div>
-    
+  
     <ul class="list__option">
-        <li *ngIf="data.premium">
-            <span class="badge rounded-pill bg-info">
-                <i class="ri-vip-crown-fill"></i>
-            </span>
-        </li>
-        <li>
-            <a role="button" class="d-inline-flex" [ngClass]="{'active': data.favorite}" aria-label="Favorite" data-favorite-id>
-                <i class="ri-heart-line heart-empty"></i>
-                <i class="ri-heart-fill heart-fill"></i>
-            </a>
-        </li>
-        <li *ngIf="viewTime && data.duration">{{data.duration}}</li>
-        <li *ngIf="viewDropdown">
-            <!-- Dropdown options -->
-            <app-dropdown [classes]="'dropstart d-inline-flex'" [data]="data" [iconVertical]="false" [viewDownload]="viewDownload"
-            [viewFavorite]="viewFavorite" [viewPlay]="viewPlayButton" [viewQueueOptions]="viewQueueOptions" [viewPlaylist]="viewPlaylist"></app-dropdown>
-        </li>
+      <li *ngIf="data.premium">
+        <span class="badge rounded-pill bg-info">
+          <i class="ri-vip-crown-fill"></i>
+        </span>
+      </li>
+      <li>
+        <a role="button" class="d-inline-flex" [ngClass]="{'active': data.isFavorite}" aria-label="Favorite" (click)="toggleFavorite(data)">
+          <i class="ri-heart-line heart-empty" *ngIf="!data.isFavorite"></i>
+          <i class="ri-heart-fill heart-fill" *ngIf="data.isFavorite"></i>
+        </a>
+      </li>
+      <li *ngIf="viewTime && data.duration">{{data.duration}}</li>
+      <li *ngIf="viewDropdown">
+        <!-- Dropdown options -->
+        <app-dropdown [classes]="'dropstart d-inline-flex'" [data]="data" [iconVertical]="false" [viewDownload]="viewDownload"
+        [viewFavorite]="viewFavorite" [viewPlay]="viewPlayButton" [viewQueueOptions]="viewQueueOptions" [viewPlaylist]="viewPlaylist"></app-dropdown>
+      </li>
     </ul>
-</div>
+  </div>
+  

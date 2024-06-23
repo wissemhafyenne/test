@@ -14,5 +14,6 @@ export class ApiConstant {
     public static PLAYLISTS = ApiConstant.API_BASE_URL + 'playlists.json';
     public static RADIO = ApiConstant.API_BASE_URL + 'radio.json';
     public static SONGS = ApiConstant.API_BASE_URL + 'songs.json';
+    public static EVENTS = ApiConstant.API_BASE_URL + 'events.json';
 
 }

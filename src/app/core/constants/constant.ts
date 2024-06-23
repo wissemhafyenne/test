@@ -22,24 +22,24 @@ export class Constant {
       link: '/app/artist',
     },
     {
-        head: 'Evenement',
-      },
-      {
-        name: 'Actuel',
-        icon: '<i class="ri-calendar-event-line fs-5"></i>',
-        link: '/app/genre',
-      },
-      {
-        name: 'Statistique',
-        icon: '<i class="ri-bar-chart-line fs-5"></i>',
-        link: '/app/song',
-      },
-      {
-        name: 'Créer nouvelle event',
-        icon: '<i class="ri-add-circle-line fs-5"></i>',
-        link: '/app/stations',
-      },
-      
+      head: 'Evenement',
+    },
+    {
+      name: 'Actuel',
+      icon: '<i class="ri-calendar-event-line fs-5"></i>',
+      link: '/app/event',
+    },
+    {
+      name: 'Statistique',
+      icon: '<i class="ri-bar-chart-line fs-5"></i>',
+      link: '/app/song',
+    },
+    {
+      name: 'Créer nouvelle event',
+      icon: '<i class="ri-add-circle-line fs-5"></i>',
+      link: '/app/event/add',
+    },
+
     {
       head: 'Your Activity',
     },
@@ -159,7 +159,7 @@ export class Constant {
   // Default user object is use to show user data after login.
   // You can remove this after integration
   public static DEFAULT_USER = {
-    name: 'Samar Amri',
+    name: 'Souhaiel Amri',
     cover: './assets/images/users/thumb.jpg',
     role: 'admin',
   };

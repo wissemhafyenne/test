@@ -1,0 +1,65 @@
+.hero {
+  background-size: cover;
+  background-position: center;
+  height: 300px; /* Vous pouvez ajuster cette valeur */
+  margin-bottom: 30px;
+}
+
+.section__head {
+  margin-bottom: 20px;
+  color: #333; /* Couleur du texte de l'entête */
+}
+
+.event-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #0056b3; /* Couleur du titre de l'événement */
+}
+
+.event-description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #622424; /* Couleur de la description de l'événement */
+}
+
+.event-details {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #000000; /* Couleur des détails de l'événement */
+}
+
+.event-details li {
+  margin-bottom: 10px;
+}
+
+.event-image {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Ajoute un espace entre l'image et le texte */
+}
+
+.btn-load-more {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+}
+
+.btn-favorite {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10px;
+  background-color: transparent;
+  border: none;
+  color: #0056b3;
+  cursor: pointer;
+}
+
+.btn-favorite i {
+  margin-right: 5px;
+  font-size: 1.2rem;
+}
+
+.btn-favorite .fa-heart {
+  color: red;
+}

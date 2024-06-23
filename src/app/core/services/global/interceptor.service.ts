@@ -38,9 +38,9 @@ export class InterceptorService implements HttpInterceptor {
     const headerJson: any = {};
 
     // add content-type only if not passed from service itself
-    if (!request.headers.get('Content-type')) {
+   /*  if (!request.headers.get('Content-type')) {
       headerJson['Content-type'] = 'application/json';
-    }
+    } */
 
     if (this.authenticationService.isUser) {
       headerJson.Authorization = 'Bearer ' + this.authenticationService.user;
