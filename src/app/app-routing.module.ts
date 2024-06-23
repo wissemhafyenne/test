@@ -5,36 +5,40 @@ import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 // Services
 import { AuthGuard } from './core/services/global/auth-guard.service';
 
+import { EvenementDetailsComponent } from './view/theme/event/event-details/event-details.component';
+import { AddEventComponent } from './view/theme/creer-event/creer-event.component';
 
 //
 // Initial routes
 const routes: Routes = [
+  { path: 'event/add', component: AddEventComponent },
+  { path: 'event/:id/details', component: EvenementDetailsComponent },
   {
     path: '',
-    loadChildren: () => import('./view/pages/pages.module').then(m => m.PagesModule)
+    loadChildren: () =>
+      import('./view/pages/pages.module').then((m) => m.PagesModule),
   },
   {
     path: 'app',
-    loadChildren: () => import('./view/theme/theme.module').then(m => m.ThemeModule),
+    loadChildren: () =>
+      import('./view/theme/theme.module').then((m) => m.ThemeModule),
     canActivate: [AuthGuard],
-    canLoad: [AuthGuard]
+    canLoad: [AuthGuard],
   },
   {
     path: '**',
-    redirectTo: '404'
+    redirectTo: '404',
   },
 ];
 
 const routeOptions: ExtraOptions = {
   scrollPositionRestoration: 'enabled',
   anchorScrolling: 'enabled',
-  onSameUrlNavigation: 'reload'
+  onSameUrlNavigation: 'reload',
 };
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, routeOptions)
-  ],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, routeOptions)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

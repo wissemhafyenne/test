@@ -1,8 +1,7 @@
-// Angular
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Modules
 import { LayoutModule } from '../layout/layout.module';
 
@@ -24,10 +23,10 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { SettingsComponent } from './user/settings/settings.component';
 import { PlanComponent } from './user/plan/plan.component';
 import { PanierComponent } from './user/Panier/panier/panier.component';
+import { EvenementComponent } from './event/event.component';
+import { EvenementDetailsComponent } from './event/event-details/event-details.component';
+import { AddEventComponent } from './creer-event/creer-event.component';
 
-
-//
-// Theme routes
 const routes: Routes = [
   {
     path: '',
@@ -36,77 +35,90 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'home',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
       },
       {
         path: 'genre',
-        component: GenreComponent
+        component: GenreComponent,
       },
       {
         path: 'genre/:id/details',
-        component: GenreDetailsComponent
+        component: GenreDetailsComponent,
       },
       {
         path: 'song',
-        component: SongComponent
+        component: SongComponent,
       },
       {
         path: 'song/:id/details',
-        component: SongDetailsComponent
+        component: SongDetailsComponent,
       },
-
       {
         path: 'album',
-        component: AlbumComponent
+        component: AlbumComponent,
       },
       {
         path: 'album/:id/details',
-        component: AlbumDetailsComponent
+        component: AlbumDetailsComponent,
       },
       {
         path: 'artist',
-        component: ArtistComponent
+        component: ArtistComponent,
       },
       {
         path: 'artist/:id/details',
-        component: ArtistDetailsComponent
+        component: ArtistDetailsComponent,
       },
       {
         path: 'stations',
-        component: StationComponent
+        component: StationComponent,
       },
-
       {
         path: 'favorites',
-        component: FavoriteComponent
+        component: FavoriteComponent,
       },
       {
         path: 'history',
-        component: HistoryComponent
+        component: HistoryComponent,
       },
       {
         path: 'profile',
-        component: ProfileComponent
+        component: ProfileComponent,
       },
       {
         path: 'settings',
-        component: SettingsComponent
+        component: SettingsComponent,
       },
       {
         path: 'plan',
-        component: PlanComponent
+        component: PlanComponent,
       },
       {
         path: 'panier',
-        component: PanierComponent
-      }
-
-    ]
-  }
+        component: PanierComponent,
+      },
+      {
+        path: 'event',
+        component: EvenementComponent,
+      },
+      {
+        path: 'event/:id/details',
+        component: EvenementDetailsComponent,
+      },
+      {
+        path: 'event/add',
+        component: AddEventComponent,
+      },
+    ],
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+  },
 ];
 
 @NgModule({
@@ -121,25 +133,23 @@ const routes: Routes = [
     AlbumDetailsComponent,
     ArtistComponent,
     ArtistDetailsComponent,
-
     FavoriteComponent,
     HistoryComponent,
     ProfileComponent,
     SettingsComponent,
     PlanComponent,
-
+    EvenementComponent,
+    EvenementDetailsComponent,
     StationComponent,
-    PanierComponent
+    PanierComponent,
+    AddEventComponent,
   ],
   imports: [
-    // Angular
     CommonModule,
-
-    // Modules
     LayoutModule,
-
-    // Import router module
-    RouterModule.forChild(routes)
-  ]
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(routes),
+  ],
 })
-export class ThemeModule { }
+export class ThemeModule {}

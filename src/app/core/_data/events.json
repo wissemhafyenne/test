@@ -1,0 +1,76 @@
+{
+    "code": 200,
+    "data": [
+      {
+        "_id": "1",
+        "name": "Tech Conference 2024",
+        "organisateur": "Tech Corp",
+        "type": "Conference",
+        "location": "New York, NY",
+        "description": "A conference showcasing the latest in technology.",
+        "dateDebut": "2024-07-10T09:00:00Z",
+        "dateFin": "2024-07-12T17:00:00Z",
+        "status": "Active",
+        "image": "https://example.com/images/tech-conference.jpg",
+        "complex": "Complex A",
+        "NomDuComplexe": "Tech Center"
+      },
+      {
+        "_id": "2",
+        "name": "Health and Wellness Expo",
+        "organisateur": "Wellness Inc.",
+        "type": "Expo",
+        "location": "San Francisco, CA",
+        "description": "An expo focused on health and wellness products and services.",
+        "dateDebut": "2024-08-05T10:00:00Z",
+        "dateFin": "2024-08-07T16:00:00Z",
+        "status": "Upcoming",
+        "image": "https://example.com/images/wellness-expo.jpg",
+        "complex": "Complex B",
+        "NomDuComplexe": "Wellness Hall"
+      },
+      {
+        "_id": "3",
+        "name": "Music Fest 2024",
+        "organisateur": "Music World",
+        "type": "Festival",
+        "location": "Los Angeles, CA",
+        "description": "A festival featuring performances by top musical artists.",
+        "dateDebut": "2024-09-20T12:00:00Z",
+        "dateFin": "2024-09-22T23:00:00Z",
+        "status": "Active",
+        "image": "https://example.com/images/music-fest.jpg",
+        "complex": "Complex C",
+        "NomDuComplexe": "Music Arena"
+      },
+      {
+        "_id": "4",
+        "name": "Startup Summit",
+        "organisateur": "Startup Hub",
+        "type": "Summit",
+        "location": "Boston, MA",
+        "description": "A summit bringing together startups and investors.",
+        "dateDebut": "2024-10-15T09:00:00Z",
+        "dateFin": "2024-10-16T18:00:00Z",
+        "status": "Upcoming",
+        "image": "https://example.com/images/startup-summit.jpg",
+        "complex": "Complex D",
+        "NomDuComplexe": "Innovation Center"
+      },
+      {
+        "_id": "5",
+        "name": "Art Expo 2024",
+        "organisateur": "Art Society",
+        "type": "Expo",
+        "location": "Chicago, IL",
+        "description": "An expo showcasing contemporary art from around the world.",
+        "dateDebut": "2024-11-01T10:00:00Z",
+        "dateFin": "2024-11-04T18:00:00Z",
+        "status": "Upcoming",
+        "image": "https://example.com/images/art-expo.jpg",
+        "complex": "Complex E",
+        "NomDuComplexe": "Art Gallery"
+      }
+    ]
+  }
+  

@@ -1,53 +1,43 @@
-// Angular
 import { Component, Input, OnInit } from '@angular/core';
-
-// Services
 import { PlayerService } from './../../../../core/services/design/player.service';
-
+import { FavoriteService } from './favorite.component';
 
 @Component({
   selector: 'app-list-view',
-  templateUrl: './list-view.component.html'
+  templateUrl: './list-view.component.html',
 })
 export class ListViewComponent implements OnInit {
 
-  // Holds data to view
   @Input() data: any;
-
-  // Flag to view dropdown element
   @Input() viewDropdown: boolean = true;
-
-  // Flag to view play button
   @Input() viewPlayButton: boolean = true;
-
-  // Flag to view option like [add in queue, play next]
   @Input() viewQueueOptions: boolean = true;
-
-  // Flag to view favorite option
   @Input() viewFavorite: boolean = true;
-
-  // Flag to view playlist option
   @Input() viewPlaylist: boolean = true;
-  
-  // Flag to view download option
   @Input() viewDownload: boolean = false;
-
-  // Flag to view song duration
   @Input() viewTime: boolean = true;
 
   constructor(
-    private playerService: PlayerService
+    private playerService: PlayerService,
+    private favoriteService: FavoriteService
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  /**
-   * Play song
-   * @param event 
-   */
   play(event: any): void {
     this.playerService.songPlayPause(event, this.data);
   }
 
+  toggleFavorite(item: any): void {
+    item.isFavorite = !item.isFavorite;
+    this.favoriteService.toggleFavorite(item.id, item.isFavorite).subscribe(
+      response => {
+        console.log('Favorite status updated successfully');
+      },
+      error => {
+        console.error('Error updating favorite status', error);
+        item.isFavorite = !item.isFavorite; // Revert the change in case of error
+      }
+    );
+  }
 }
