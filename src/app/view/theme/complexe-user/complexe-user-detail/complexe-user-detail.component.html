@@ -1,0 +1,89 @@
+<!-- Hero [[ Find at scss/framework/hero.scss ]] -->
+<div
+  class="hero"
+  *ngIf="complexe?.photos"
+  [ngStyle]="{ 'background-image': 'url(' + complexe?.photos + ')' }"
+></div>
+
+<!-- Start:: under hero [[ Find at scss/framework/hero.scss ]] -->
+<div class="under-hero container">
+  <!-- Start:: section [[ Find at scss/framework/section.scss ]] -->
+  <div class="section">
+    <div class="section__head">
+      <h3 class="mb-0">Details du <span class="text-primary">Complexe</span></h3>
+    </div>
+
+    <!-- Start:: list [[ Find at scss/components/list.scss ]] -->
+    <div class="list" *ngIf="complexe">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="complexe-title">{{ complexe?.Name }}</h2>
+          <p class="complexe-description">{{ complexe?.description }}</p>
+          <ul class="complexe-details list-unstyled">
+            <li><strong>Nom:</strong> {{ complexe?.Name }}</li>
+            <li><strong>Adresse:</strong> {{ complexe?.Address }}</li>
+            <li><strong>Ville:</strong> {{ complexe?.Ville }}</li>
+            <li><strong>Code Postal:</strong> {{ complexe?.Code_postale }}</li>
+            <li><strong>Pays:</strong> {{ complexe?.Pays }}</li>
+            <li>
+              <strong>Horaires d'Ouverture:</strong>
+              <ul>
+                <li><strong>Lundi:</strong> {{ complexe?.horairesOuverture?.lundi }}</li>
+                <li><strong>Mardi:</strong> {{ complexe?.horairesOuverture?.mardi }}</li>
+                <li><strong>Mercredi:</strong> {{ complexe?.horairesOuverture?.mercredi }}</li>
+                <li><strong>Jeudi:</strong> {{ complexe?.horairesOuverture?.jeudi }}</li>
+                <li><strong>Vendredi:</strong> {{ complexe?.horairesOuverture?.vendredi }}</li>
+                <li><strong>Samedi:</strong> {{ complexe?.horairesOuverture?.samedi }}</li>
+                <li><strong>Dimanche:</strong> {{ complexe?.horairesOuverture?.dimanche }}</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6 text-center">
+          <img
+            *ngIf="complexe?.photos"
+            [src]="complexe?.photos"
+            alt="Complexe Image"
+            class="img-fluid complexe-image"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="list" *ngIf="!complexe">
+      <p>Loading complexe details...</p>
+    </div>
+    <!-- End:: list -->
+
+    <div class="mt-5 text-center">
+      <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
+        <div class="btn__wrap">
+          <i class="ri-loader-3-fill"></i>
+          <span>Load more</span>
+          <br>
+        </div>
+      </a>
+    </div>
+
+    <div class="mt-5 text-center">
+      <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
+        <div class="btn__wrap">
+
+
+        </div>
+      </a>
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+  <!-- End:: section -->
+</div>
+<!-- End:: under hero -->
+
+
