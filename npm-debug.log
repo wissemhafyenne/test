@@ -1,0 +1,100 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'n' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData n
+8 silly fetchNamedPackageData n
+9 silly mapToRegistry name n
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'n',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'n',
+12 silly mapToRegistry   name: 'n',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/n
+14 verbose request uri https://registry.npmjs.org/n
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 18:14:32
+17 verbose request id c12c94f58e01bf98
+18 http request GET https://registry.npmjs.org/n
+19 http 200 https://registry.npmjs.org/n
+20 verbose headers { date: 'Sun, 23 Jun 2024 16:14:33 GMT',
+20 verbose headers   'content-type': 'application/json',
+20 verbose headers   'transfer-encoding': 'chunked',
+20 verbose headers   connection: 'keep-alive',
+20 verbose headers   'cf-ray': '8985c591aae05bcb-TUN',
+20 verbose headers   'cf-cache-status': 'REVALIDATED',
+20 verbose headers   'access-control-allow-origin': '*',
+20 verbose headers   'cache-control': 'public, max-age=300',
+20 verbose headers   etag: 'W/"ef1abe477d3f07bbc55c04c1a79272f2"',
+20 verbose headers   'last-modified': 'Sun, 21 Apr 2024 00:34:17 GMT',
+20 verbose headers   vary: 'accept-encoding, accept',
+20 verbose headers   server: 'cloudflare',
+20 verbose headers   'content-encoding': 'gzip' }
+21 silly get cb [ 200,
+21 silly get   { date: 'Sun, 23 Jun 2024 16:14:33 GMT',
+21 silly get     'content-type': 'application/json',
+21 silly get     'transfer-encoding': 'chunked',
+21 silly get     connection: 'keep-alive',
+21 silly get     'cf-ray': '8985c591aae05bcb-TUN',
+21 silly get     'cf-cache-status': 'REVALIDATED',
+21 silly get     'access-control-allow-origin': '*',
+21 silly get     'cache-control': 'public, max-age=300',
+21 silly get     etag: 'W/"ef1abe477d3f07bbc55c04c1a79272f2"',
+21 silly get     'last-modified': 'Sun, 21 Apr 2024 00:34:17 GMT',
+21 silly get     vary: 'accept-encoding, accept',
+21 silly get     server: 'cloudflare',
+21 silly get     'content-encoding': 'gzip' } ]
+22 verbose get saving n to C:\Users\HP\AppData\Roaming\npm-cache\registry.npmjs.org\n\.cache.json
+23 verbose correctMkdir C:\Users\HP\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+24 silly install normalizeTree
+25 silly loadCurrentTree Finishing
+26 silly loadIdealTree Starting
+27 silly install loadIdealTree
+28 silly cloneCurrentTree Starting
+29 silly install cloneCurrentTreeToIdealTree
+30 silly cloneCurrentTree Finishing
+31 silly loadShrinkwrap Starting
+32 silly install loadShrinkwrap
+33 silly loadShrinkwrap Finishing
+34 silly loadAllDepsIntoIdealTree Starting
+35 silly install loadAllDepsIntoIdealTree
+36 silly rollbackFailedOptional Starting
+37 silly rollbackFailedOptional Finishing
+38 silly runTopLevelLifecycles Finishing
+39 silly install printInstalled
+40 verbose stack Error: Unsupported platform for n@9.2.3: wanted {"name":"n","description":"Interactively Manage All Your Node Versions","version":"9.2.3","author":{"name":"TJ Holowaychuk","email":"tj@vision-media.ca"},"homepage":"https://github.com/tj/n","bugs":{"url":"https://github.com/tj/n/issues"},"contributors":[{"name":"n Contributors","url":"https://github.com/tj/n/graphs/contributors"}],"keywords":["nvm","node","version","manager","switcher","node","binary","env"],"bin":{"n":"bin/n"},"repository":{"type":"git","url":"git://github.com/tj/n.git"},"scripts":{"test":"test/bin/run-all-tests"},"devDependencies":{"bats":"^1.2.1","bats-assert":"github:bats-core/bats-assert","bats-support":"github:bats-core/bats-support"},"preferGlobal":true,"os":["!win32"],"engines":{"node":"*"},"license":"MIT","_id":"n@9.2.3","gitHead":"371affba8a21ec95ca1cab784ef409c879e6ce83","_nodeVersion":"20.12.2","_npmVersion":"10.5.0","dist":{"integrity":"sha512-iKU/fMITB+bJe0wQ6Q6THSWBpfF/f/g4elhr23Mp4TywSY0rJvaHVdkMhL9uWEdwdipAPidmTIqafI0BTJj/lQ==","shasum":"dc63618449e40474c74d412d0c14950013c8273c","tarball":"https://registry.npmjs.org/n/-/n-9.2.3.tgz","fileCount":4,"unpackedSize":65624,"signatures":[{"keyid":"SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA","sig":"MEUCIQCqCqTJTFnLIdiMc3fOYvZBls1PXjJ21uk3b9Rg4bdl5gIgMx5wv2f/AL6CsEJdN6ABv5sOLh+hN40Dd+q4JiZBF2I="}]},"_npmUser":{"name":"shadowspawn","email":"npm_j@ruru.gen.nz"},"directories":{},"maintainers":[{"name":"tjholowaychuk","email":"tj@vision-media.ca"},{"name":"shadowspawn","email":"npm_j@ruru.gen.nz"}],"_npmOperationalInternal":{"host":"s3://npm-registry-packages","tmp":"tmp/n_9.2.3_1713659655777_0.8581528644843746"},"_hasShrinkwrap":false,"_from":"n","_resolved":"https://registry.npmjs.org/n/-/n-9.2.3.tgz","_shasum":"dc63618449e40474c74d412d0c14950013c8273c","_requested":{"raw":"n","scope":null,"escapedName":"n","name":"n","rawSpec":"","spec":"latest","type":"tag"},"_spec":"n","_where":"C:\\Users\\HP\\Desktop\\PI NEW Projet\\PI-AREANABOOKER-FRONT END\\front-end","_args":[[{"raw":"n","scope":null,"escapedName":"n","name":"n","rawSpec":"","spec":"latest","type":"tag"},"C:\\Users\\HP\\Desktop\\PI NEW Projet\\PI-AREANABOOKER-FRONT END\\front-end"]],"readme":"ERROR: No README data found!"} (current: {"os":"win32","cpu":"x64"})
+40 verbose stack     at checkPlatform (C:\Users\HP\AppData\Roaming\nvm\v6.11.1\node_modules\npm\node_modules\npm-install-checks\index.js:45:14)
+40 verbose stack     at thenWarnEngineIssues (C:\Users\HP\AppData\Roaming\nvm\v6.11.1\node_modules\npm\lib\install\validate-args.js:41:5)
+40 verbose stack     at C:\Users\HP\AppData\Roaming\nvm\v6.11.1\node_modules\npm\node_modules\iferr\index.js:13:50
+40 verbose stack     at checkEngine (C:\Users\HP\AppData\Roaming\nvm\v6.11.1\node_modules\npm\node_modules\npm-install-checks\index.js:24:10)
+40 verbose stack     at module.exports.isInstallable (C:\Users\HP\AppData\Roaming\nvm\v6.11.1\node_modules\npm\lib\install\validate-args.js:38:3)
+40 verbose stack     at Array.<anonymous> (C:\Users\HP\AppData\Roaming\nvm\v6.11.1\node_modules\npm\node_modules\slide\lib\bind-actor.js:15:8)
+40 verbose stack     at LOOP (C:\Users\HP\AppData\Roaming\nvm\v6.11.1\node_modules\npm\node_modules\slide\lib\chain.js:15:14)
+40 verbose stack     at C:\Users\HP\AppData\Roaming\nvm\v6.11.1\node_modules\npm\node_modules\slide\lib\chain.js:18:7
+40 verbose stack     at checkSelf (C:\Users\HP\AppData\Roaming\nvm\v6.11.1\node_modules\npm\lib\install\validate-args.js:46:72)
+40 verbose stack     at Array.<anonymous> (C:\Users\HP\AppData\Roaming\nvm\v6.11.1\node_modules\npm\node_modules\slide\lib\bind-actor.js:15:8)
+41 verbose pkgid n@9.2.3
+42 verbose cwd C:\Users\HP\Desktop\PI NEW Projet\PI-AREANABOOKER-FRONT END\front-end
+43 error Windows_NT 10.0.19045
+44 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "n"
+45 error node v6.11.1
+46 error npm  v3.10.10
+47 error code EBADPLATFORM
+48 error notsup Unsupported platform for n@9.2.3: wanted {"os":"!win32","arch":"any"} (current: {"os":"win32","arch":"x64"})
+49 error notsup Valid OS:    !win32
+49 error notsup Valid Arch:  any
+49 error notsup Actual OS:   win32
+49 error notsup Actual Arch: x64
+50 verbose exit [ 1, true ]

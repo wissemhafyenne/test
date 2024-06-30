@@ -1,0 +1,13 @@
+<div *ngIf="terrains.length > 0; else noTerrains">
+    <h2>List of Terrains</h2>
+    <ul>
+      <li *ngFor="let terrain of terrains">
+        {{ terrain.Name }} - {{ terrain.Type }}
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noTerrains>
+    <p>No terrains available for this complex.</p>
+  </ng-template>
+  

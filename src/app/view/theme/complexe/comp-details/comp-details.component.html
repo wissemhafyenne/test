@@ -68,7 +68,7 @@
       <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
         <div class="btn__wrap">
 
-
+          <button type="button" class="btn btn-primary" (click)="complexe && deleteComplexe(complexe?._id ?? '')">Delete</button>
         </div>
       </a>
     </div>
@@ -82,64 +82,8 @@
 
 
 
-<!-- Hero -->
-<div class="hero"></div>
-
-<!-- Start:: under hero [[ Find at scss/framework/hero.scss ]] -->
-<div class="under-hero container">
-  <!-- Start:: Carousel -->
-  <div id="terrainCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item" *ngFor="let terrain of terrains; let i = index" [ngClass]="{'active': i === 0}">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>{{ terrain.Name }}</h5>
-          <img [src]="terrain.photos" alt="{{ terrain.Name }}" class="d-block w-100">
-          <a class="btn btn-primary mt-3" [routerLink]="['terrain/user', terrain._id, 'details']">Voir les détails</a>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#terrainCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#terrainCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  <!-- End:: Carousel -->
+  <!-- End:: section -->
 </div>
 <!-- End:: under hero -->
 
-<!-- Section for Terrains List -->
-<div class="section" *ngIf="terrains.length">
-  <div class="section__head">
-    <h2 class="mb-0">Liste des <span class="text-primary">Terrains</span></h2>
-  </div>
-  <div class="row g-4">
-    <div class="col-xl-3 col-sm-6" *ngFor="let terrain of terrains">
-      <a [routerLink]="['/terrain/user', terrain._id, 'details']" class="terrain-link">
-        <app-cluster-view
-          [data]="{
-            cover: terrain.photos,
-            name: terrain.Name,
-            detailsRoute: '/terrain/user/' + terrain._id + '/details'
-        }"
-          [viewData]="false"
-        ></app-cluster-view>
-      </a>
-    </div>
-  </div>
-</div>
-
-
-
-
-<div class="mt-5 text-center">
-  <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
-    <div class="btn__wrap">
-      <button type="button" class="btn btn-primary" (click)="addTerrain()">Create terrain</button>
-    </div>
-  </a>
-</div>
 

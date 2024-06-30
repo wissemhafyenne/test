@@ -7,12 +7,23 @@ import { AuthGuard } from './core/services/global/auth-guard.service';
 
 import { EvenementDetailsComponent } from './view/theme/event/event-details/event-details.component';
 import { AddEventComponent } from './view/theme/creer-event/creer-event.component';
-
+import { CompDetailsComponent } from './view/theme/complexe/comp-details/comp-details.component';
+import { ComplexeUserDetailComponent } from './view/theme/complexe-user/complexe-user-detail/complexe-user-detail.component';
+import { TerrainDetailsComponent } from './view/theme/complexe-user/complexe-user-detail/terrain-details/terrain-details.component';
 //
 // Initial routes
 const routes: Routes = [
   { path: 'event/add', component: AddEventComponent },
   { path: 'event/:id/details', component: EvenementDetailsComponent },
+  { path: 'complexe/:id/details', component: CompDetailsComponent },
+  {
+    path: 'terrain/user/:id/details',
+    component: TerrainDetailsComponent,
+  },
+  {
+    path: 'compt/user/:id/details',
+    component: ComplexeUserDetailComponent,
+  },
   {
     path: '',
     loadChildren: () =>
@@ -22,6 +33,13 @@ const routes: Routes = [
     path: 'app',
     loadChildren: () =>
       import('./view/theme/theme.module').then((m) => m.ThemeModule),
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
+  },
+  {
+    path: 'app/back',
+    loadChildren: () =>
+      import('./view/back-offcomplexe/back-offcomlexe.module').then((m) => m.ThemeModule),
     canActivate: [AuthGuard],
     canLoad: [AuthGuard],
   },

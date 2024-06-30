@@ -1,0 +1,88 @@
+<!-- Hero [[ Find at scss/framework/hero.scss ]] -->
+<div
+  class="hero"
+  *ngIf="terrain?.photos"
+  [ngStyle]="{ 'background-image': 'url(' + terrain?.photos + ')' }"
+></div>
+
+<!-- Start:: under hero [[ Find at scss/framework/hero.scss ]] -->
+<div class="under-hero container">
+  <!-- Start:: section [[ Find at scss/framework/section.scss ]] -->
+  <div class="section">
+    <div class="section__head">
+      <h3 class="mb-0">Details du <span class="text-primary">Terrain</span></h3>
+    </div>
+
+    <!-- Start:: list [[ Find at scss/components/list.scss ]] -->
+    <div class="list" *ngIf="terrain">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="terrain-title" *ngIf="terrain?.Name">{{ terrain?.Name }}</h2>
+          <p class="terrain-description" *ngIf="terrain?.description">{{ terrain?.description }}</p>
+          <ul class="terrain-details list-unstyled">
+            <li *ngIf="terrain?.Name"><strong>Nom:</strong> {{ terrain?.Name }}</li>
+            <li *ngIf="terrain?.Type"><strong>Type:</strong> {{ terrain?.Type }}</li>
+            <li *ngIf="terrain?.longueur"><strong>Longueur:</strong> {{ terrain?.longueur }}</li>
+            <li *ngIf="terrain?.largeur"><strong>Largeur:</strong> {{ terrain?.largeur }}</li>
+            <li *ngIf="terrain?.surface"><strong>Surface:</strong> {{ terrain?.surface }}</li>
+            <li *ngIf="terrain?.Numero_terrain"><strong>Numéro du terrain:</strong> {{ terrain?.Numero_terrain }}</li>
+            <li *ngIf="terrain?.Capacite"><strong>Capacité:</strong> {{ terrain?.Capacite }}</li>
+            <li *ngIf="terrain?.prixparHeure"><strong>Prix par Heure:</strong> {{ terrain?.prixparHeure }}</li>
+            <li *ngIf="terrain?.disponibilite"><strong>Disponibilité:</strong> {{ terrain?.disponibilite }}</li>
+            <li *ngIf="terrain?.nature_terrain"><strong>Nature du terrain:</strong> {{ terrain?.nature_terrain }}</li>
+            <li *ngIf="terrain?.hauteur_Panier"><strong>Hauteur du Panier:</strong> {{ terrain?.hauteur_Panier }}</li>
+            <li *ngIf="terrain?.surfaces_de_Jeu"><strong>Surfaces de Jeu:</strong> {{ terrain?.surfaces_de_Jeu }}</li>
+            <li *ngIf="terrain?.Hauteur_du_filet"><strong>Hauteur du filet:</strong> {{ terrain?.Hauteur_du_filet }}</li>
+            <li *ngIf="terrain?.Largeur_du_filet"><strong>Largeur du filet:</strong> {{ terrain?.Largeur_du_filet }}</li>
+            <li *ngIf="terrain?.Zones_de_service"><strong>Zones de service:</strong> {{ terrain?.Zones_de_service }}</li>
+            <li *ngIf="terrain?.Couloir_de_double"><strong>Couloir de double:</strong> {{ terrain?.Couloir_de_double }}</li>
+            <li *ngIf="terrain?.Nombre_de_trous"><strong>Nombre de trous:</strong> {{ terrain?.Nombre_de_trous }}</li>
+            <li *ngIf="terrain?.Par_du_trou"><strong>Par du trou:</strong> {{ terrain?.Par_du_trou }}</li>
+            <li *ngIf="terrain?.Longueur_du_trou"><strong>Longueur du trou:</strong> {{ terrain?.Longueur_du_trou }}</li>
+            <li *ngIf="terrain?.Profondeur"><strong>Profondeur:</strong> {{ terrain?.Profondeur }}</li>
+            <li *ngIf="terrain?.Nombre_de_couloirs"><strong>Nombre de couloirs:</strong> {{ terrain?.Nombre_de_couloirs }}</li>
+            <li *ngIf="terrain?.Largeur_des_couloirs"><strong>Largeur des couloirs:</strong> {{ terrain?.Largeur_des_couloirs }}</li>
+            <li *ngIf="terrain?.Type_de_piscine"><strong>Type de piscine:</strong> {{ terrain?.Type_de_piscine }}</li>
+            <li *ngIf="terrain?.Longueur_du_ring"><strong>Longueur du ring:</strong> {{ terrain?.Longueur_du_ring }}</li>
+            <li *ngIf="terrain?.Largeur_du_ring"><strong>Largeur du ring:</strong> {{ terrain?.Largeur_du_ring }}</li>
+            <li *ngIf="terrain?.Hauteur_du_ring"><strong>Hauteur du ring:</strong> {{ terrain?.Hauteur_du_ring }}</li>
+          </ul>
+        </div>
+        <div class="col-md-6 text-center">
+          <img
+            *ngIf="terrain?.photos"
+            [src]="terrain?.photos"
+            alt="Terrain Image"
+            class="img-fluid terrain-image"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="list" *ngIf="!terrain">
+      <p>Loading terrain details...</p>
+    </div>
+    <!-- End:: list -->
+
+    <div class="mt-5 text-center">
+      <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
+        <div class="btn__wrap">
+          <i class="ri-loader-3-fill"></i>
+          <span>Load more</span>
+          <br>
+        </div>
+      </a>
+    </div>
+
+
+ 
+    <div class="mt-5 text-center">
+        <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
+          <div class="btn__wrap">
+            <button type="button" class="btn btn-primary" (click)="terrain && deleteTerrain(terrain?._id ?? '')">Delete</button>
+          </div>
+        </a>
+      </div>
+    </div>
+    <!-- End:: section -->
+  </div>
+  <!-- End:: under hero -->

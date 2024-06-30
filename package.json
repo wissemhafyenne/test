@@ -47,5 +47,13 @@
   "main": "karma.conf.js",
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/123azertyAZERTY/front-end.git"
+  },
+  "bugs": {
+    "url": "https://github.com/123azertyAZERTY/front-end/issues"
+  },
+  "homepage": "https://github.com/123azertyAZERTY/front-end#readme",
   "description": ""
 }

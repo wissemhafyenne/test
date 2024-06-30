@@ -1,0 +1,101 @@
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <h2>Créer un Nouveau Complexe</h2>
+    <form [formGroup]="addComplexeForm" (ngSubmit)="listComplexes()">
+      <div class="form-group">
+        <label for="Name">Nom</label>
+        <input id="Name" formControlName="Name" class="form-control" />
+        <div *ngIf="Name?.invalid && (Name?.dirty || Name?.touched)">
+          <small class="text-danger" *ngIf="Name?.errors?.['required']">Le nom est requis.</small>
+          <small class="text-danger" *ngIf="Name?.errors?.['minlength']">Le nom doit contenir au moins 3 caractères.</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" class="form-control"></textarea>
+        <div *ngIf="description?.invalid && (description?.dirty || description?.touched)">
+          <small class="text-danger" *ngIf="description?.errors?.['required']">La description est requise.</small>
+          <small class="text-danger" *ngIf="description?.errors?.['minlength']">La description doit contenir au moins 10 caractères.</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="Address">Adresse</label>
+        <input id="Address" formControlName="Address" class="form-control" />
+        <div *ngIf="Address?.invalid && (Address?.dirty || Address?.touched)">
+          <small class="text-danger" *ngIf="Address?.errors?.['required']">L'adresse est requise.</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="Ville">Ville</label>
+        <input id="Ville" formControlName="Ville" class="form-control" />
+        <div *ngIf="Ville?.invalid && (Ville?.dirty || Ville?.touched)">
+          <small class="text-danger" *ngIf="Ville?.errors?.['required']">La ville est requise.</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="Code_postale">Code Postal</label>
+        <input id="Code_postale" formControlName="Code_postale" class="form-control" />
+        <div *ngIf="Code_postale?.invalid && (Code_postale?.dirty || Code_postale?.touched)">
+          <small class="text-danger" *ngIf="Code_postale?.errors?.['required']">Le code postal est requis.</small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="Pays">Pays</label>
+        <input id="Pays" formControlName="Pays" class="form-control" />
+        <div *ngIf="Pays?.invalid && (Pays?.dirty || Pays?.touched)">
+          <small class="text-danger" *ngIf="Pays?.errors?.['required']">Le pays est requis.</small>
+        </div>
+      </div>
+
+      <div formGroupName="horairesOuverture">
+        <div class="form-group">
+          <label for="lundi">Lundi</label>
+          <input id="lundi" formControlName="lundi" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="mardi">Mardi</label>
+          <input id="mardi" formControlName="mardi" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="mercredi">Mercredi</label>
+          <input id="mercredi" formControlName="mercredi" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="jeudi">Jeudi</label>
+          <input id="jeudi" formControlName="jeudi" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="vendredi">Vendredi</label>
+          <input id="vendredi" formControlName="vendredi" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="samedi">Samedi</label>
+          <input id="samedi" formControlName="samedi" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="dimanche">Dimanche</label>
+          <input id="dimanche" formControlName="dimanche" class="form-control" />
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="photos">Photos</label>
+        <input type="file" id="photos" (change)="onFileChange($event)" class="form-control" />
+        <div *ngIf="photos?.invalid && (photos?.dirty || photos?.touched)">
+          <small class="text-danger" *ngIf="photos?.errors?.['required']">Les photos sont requises.</small>
+        </div>
+      </div>
+
+  
+      <button type="submit" class="btn btn-primary" [disabled]="addComplexeForm.invalid">ADD</button>
+
+    </form>
+  </div>
+  

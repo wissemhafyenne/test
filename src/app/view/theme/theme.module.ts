@@ -26,7 +26,16 @@ import { PanierComponent } from './user/Panier/panier/panier.component';
 import { EvenementComponent } from './event/event.component';
 import { EvenementDetailsComponent } from './event/event-details/event-details.component';
 import { AddEventComponent } from './creer-event/creer-event.component';
-
+import { ComplexeComponent } from './complexe/complexe.component';
+import { CompDetailsComponent } from './complexe/comp-details/comp-details.component';
+import { CreateCompxComponent } from './complexe/create-compx/create-compx.component';
+import { ComplexeUserComponent } from './complexe-user/complexe-user.component';
+import { ComplexeUserDetailComponent } from './complexe-user/complexe-user-detail/complexe-user-detail.component';
+import { CompUserAddComponent } from './complexe-user/comp-user-add/comp-user-add.component';
+import { CompUserUpdateComponent } from './complexe-user/comp-user-update/comp-user-update.component';
+import { TerrainDetailsComponent } from './complexe-user/complexe-user-detail/terrain-details/terrain-details.component';
+import { ADDTerrainComponent } from './complexe-user/complexe-user-detail/add-terrain/add-terrain.component';
+import { TestComponent } from './test/test.component';
 const routes: Routes = [
   {
     path: '',
@@ -113,6 +122,57 @@ const routes: Routes = [
         path: 'event/add',
         component: AddEventComponent,
       },
+      {
+        path: 'complexe',
+        component: ComplexeComponent,
+      },
+
+      { path: 'complexe/:id/details',
+        component: CompDetailsComponent
+      },
+      {
+        path: 'compt/add',
+        component: CreateCompxComponent,
+      },
+
+      {
+        path: 'compt/user',
+        component: ComplexeUserComponent,
+      },
+
+      {
+        path: 'compt/user/:id/details',
+        component: ComplexeUserDetailComponent,
+      },
+
+      {
+        path: 'compt/user/add',
+        component: CompUserAddComponent,
+      },
+
+      {
+        path: 'compt/user/update',
+        component: CompUserUpdateComponent,
+      },
+
+      {
+        path: 'terrain/user/:id/details',
+        component: TerrainDetailsComponent,
+      },
+
+      {
+        path: 'terrain/user/add',
+        component: ADDTerrainComponent,
+      },
+
+
+      {
+        path: 'test',
+        component: TestComponent,
+      },
+
+  
+
     ],
   },
   {
@@ -143,6 +203,25 @@ const routes: Routes = [
     StationComponent,
     PanierComponent,
     AddEventComponent,
+    ComplexeComponent,
+    CompDetailsComponent,
+    CreateCompxComponent,
+    ComplexeUserComponent,
+    ComplexeUserDetailComponent,
+    CompUserAddComponent,
+    CompUserUpdateComponent,
+    TerrainDetailsComponent,
+    ADDTerrainComponent,
+
+
+
+
+
+
+    TestComponent
+
+
+
   ],
   imports: [
     CommonModule,

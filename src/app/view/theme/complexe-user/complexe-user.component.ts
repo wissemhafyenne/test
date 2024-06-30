@@ -12,10 +12,9 @@ export class ComplexeUserComponent  {
 
   complexes: Complexe[] = [];
 
-  userId: string = '665af7dc3fb476cd0bbe9122'; // Replace with the actual user ID
+  userId: string = '665af7fc3fb476cd0bbe9124'; // Replace with the actual user ID
 
   constructor(private complexeService: ComplexeService) {
-
 
 
     
@@ -23,16 +22,34 @@ export class ComplexeUserComponent  {
 
   ngOnInit(): void {
     this.getComplexes();
+    
+
   }
 
 
 
   getComplexes(): void {
     this.complexeService.getUserComplexe(this.userId).subscribe({
-  next: (data) => this.complexes = data,
+  next: (data) =>  {
+    this.complexes = data
+    console.log('user_id', this.userId)
+
+
+  },
+
   error: (err) => console.log(err)
     }
     );
+
+
+
+
+
+
+
+
+
+
   }
 
 
