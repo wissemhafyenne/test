@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class CompUserAddComponent {
   photosPreview: string | ArrayBuffer | null = null;
   selectedFile: File | null = null;
-  userId: string = '665af7dc3fb476cd0bbe9122';
+  UserId: string = '665af7dc3fb476cd0bbe9122';
 
   constructor(private complexeService: ComplexeService, private router: Router) { }
 
@@ -91,7 +91,7 @@ export class CompUserAddComponent {
       formData.append('Code_postale', this.addComplexeForm.get('Code_postale')?.value);
       formData.append('Pays', this.addComplexeForm.get('Pays')?.value);
       formData.append('horairesOuverture', JSON.stringify(this.addComplexeForm.get('horairesOuverture')?.value));
-      formData.append('userId', this.userId); // Ajouter l'ID de l'utilisateur statique
+      formData.append('UserId', this.UserId); // Ajouter l'ID de l'utilisateur statique
       if (this.selectedFile) {
         formData.append('photos', this.selectedFile);
       }

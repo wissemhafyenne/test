@@ -1,19 +1,43 @@
 <!-- Hero -->
-<div class="hero" style="background-image: url(../../../../assets/images/Events/pixelcut-export.png);"></div>
+<div class="hero" style="background-image: url(../../../../assets/images/complexe/background.png);"></div>
 
-<!-- Start:: under hero [[ Find at scss/framework/hero.scss ]] -->
-<div class="under-hero container">
   <!-- Start:: Carousel -->
   <div id="complexCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item" *ngFor="let complexe of complexes; let i = index" [ngClass]="{'active': i === 0}">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>{{ complexe.Name }}</h5>
-          <img [src]="complexe.photos" alt="{{ complexe.Name }}" class="d-block w-100">
-          <a class="btn btn-primary mt-3" [routerLink]="['compt/user', complexe._id]">Voir les détails</a>
+      <div class="section__head">
+        <h2 class="mt-5 text-center">Welcome To Home </h2>
+      </div>
+
+
+
+      <div id="carouselExample" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let complexe of complexes; let i = index" [ngClass]="{'active': i === 0}">
+            <div class="carousel-content">
+              <img [src]="complexe.photos" alt="{{ complexe.Name }}" class="d-block w-100 carousel-img">
+              <div class="carousel-overlay"></div>
+              <div class="carousel-caption">
+                <h3>{{ complexe.Name }}</h3>
+                <p>{{ complexe.Ville }}</p>
+                <span class="price">{{ complexe.Address }} €</span>
+                <a class="btn btn-primary" [routerLink]="['/compt/user', complexe._id, 'details']">Voir les détails</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      
+      
+    
+    
+    
+
+
+
+
     </div>
+
+
     <button class="carousel-control-prev" type="button" data-bs-target="#complexCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -24,17 +48,18 @@
     </button>
   </div>
   <!-- End:: Carousel -->
-</div>
-<!-- End:: under hero -->
 
+<!-- End:: under hero -->
+<br>
 <!-- Section for Complexes List -->
 <div class="section" *ngIf="complexes.length">
   <div class="section__head">
-    <h2 class="mb-0">Liste des <span class="text-primary">Complexes</span></h2>
+    <h3 > <span class="text-primary">Liste des Complexes</span></h3>
   </div>
   <div class="row g-4">
     <div class="col-xl-3 col-sm-6" *ngFor="let complexe of complexes">
       <a [routerLink]="['/compt/user', complexe._id]" class="complexe-link">
+
         <app-cluster-view
           [data]="{
             cover: complexe.photos,
@@ -47,3 +72,10 @@
     </div>
   </div>
 </div>
+
+
+<div class="mt-5 text-center">
+
+      <button type="button" class="btn btn-primary circular-btn" (click)="addcomplexe()">+</button>
+</div>
+

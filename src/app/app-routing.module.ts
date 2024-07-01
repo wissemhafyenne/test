@@ -10,6 +10,7 @@ import { AddEventComponent } from './view/theme/creer-event/creer-event.componen
 import { CompDetailsComponent } from './view/theme/complexe/comp-details/comp-details.component';
 import { ComplexeUserDetailComponent } from './view/theme/complexe-user/complexe-user-detail/complexe-user-detail.component';
 import { TerrainDetailsComponent } from './view/theme/complexe-user/complexe-user-detail/terrain-details/terrain-details.component';
+import { CompUserUpdateComponent } from './view/theme/complexe-user/comp-user-update/comp-user-update.component';
 //
 // Initial routes
 const routes: Routes = [
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'terrain/user/:id/details',
     component: TerrainDetailsComponent,
+  },
+  {
+    path: 'compt/user/update/:id',
+    component: CompUserUpdateComponent,
   },
   {
     path: 'compt/user/:id/details',

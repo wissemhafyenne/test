@@ -17,24 +17,24 @@
     <div class="list" *ngIf="complexe">
       <div class="row">
         <div class="col-md-6">
-          <h2 class="complexe-title">{{ complexe?.Name }}</h2>
-          <p class="complexe-description">{{ complexe?.description }}</p>
+          <h2 class="complexe-title" *ngIf="complexe?.Name" >{{ complexe?.Name }}</h2>
+          <p class="complexe-description"*ngIf="complexe?.description">{{ complexe?.description }}</p>
           <ul class="complexe-details list-unstyled">
-            <li><strong>Nom:</strong> {{ complexe?.Name }}</li>
-            <li><strong>Adresse:</strong> {{ complexe?.Address }}</li>
-            <li><strong>Ville:</strong> {{ complexe?.Ville }}</li>
-            <li><strong>Code Postal:</strong> {{ complexe?.Code_postale }}</li>
-            <li><strong>Pays:</strong> {{ complexe?.Pays }}</li>
-            <li>
+            <li *ngIf="complexe?.Name"><strong>Nom:</strong> {{ complexe?.Name }}</li>
+            <li *ngIf="complexe?.Address"><strong>Adresse:</strong> {{ complexe?.Address }}</li>
+            <li *ngIf="complexe?.Ville"><strong>Ville:</strong> {{ complexe?.Ville }}</li>
+            <li *ngIf="complexe?.Code_postale"><strong>Code Postal:</strong> {{ complexe?.Code_postale }}</li>
+            <li *ngIf="complexe?.Pays"><strong>Pays:</strong> {{ complexe?.Pays }}</li>
+            <li *ngIf="complexe?.horairesOuverture">
               <strong>Horaires d'Ouverture:</strong>
               <ul>
-                <li><strong>Lundi:</strong> {{ complexe?.horairesOuverture?.lundi }}</li>
-                <li><strong>Mardi:</strong> {{ complexe?.horairesOuverture?.mardi }}</li>
-                <li><strong>Mercredi:</strong> {{ complexe?.horairesOuverture?.mercredi }}</li>
-                <li><strong>Jeudi:</strong> {{ complexe?.horairesOuverture?.jeudi }}</li>
-                <li><strong>Vendredi:</strong> {{ complexe?.horairesOuverture?.vendredi }}</li>
-                <li><strong>Samedi:</strong> {{ complexe?.horairesOuverture?.samedi }}</li>
-                <li><strong>Dimanche:</strong> {{ complexe?.horairesOuverture?.dimanche }}</li>
+                <li *ngIf="complexe?.horairesOuverture?.lundi"><strong>Lundi:</strong> {{ complexe?.horairesOuverture?.lundi }}</li>
+                <li *ngIf="complexe?.horairesOuverture?.mardi"><strong>Mardi:</strong> {{ complexe?.horairesOuverture?.mardi }}</li>
+                <li *ngIf="complexe?.horairesOuverture?.mercredi"><strong>Mercredi:</strong> {{ complexe?.horairesOuverture?.mercredi }}</li>
+                <li *ngIf="complexe?.horairesOuverture?.jeudi"><strong>Jeudi:</strong> {{ complexe?.horairesOuverture?.jeudi }}</li>
+                <li *ngIf="complexe?.horairesOuverture?.vendredi"><strong>Vendredi:</strong> {{ complexe?.horairesOuverture?.vendredi }}</li>
+                <li *ngIf="complexe?.horairesOuverture?.samedi"><strong>Samedi:</strong> {{ complexe?.horairesOuverture?.samedi }}</li>
+                <li *ngIf="complexe?.horairesOuverture?.dimanche"><strong>Dimanche:</strong> {{ complexe?.horairesOuverture?.dimanche }}</li>
               </ul>
             </li>
           </ul>
@@ -77,9 +77,15 @@
 
 
   </div>
+</div>
 
-
-
+<div class="mt-5 text-center">
+  <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
+    <div class="btn__wrap">
+      <button type="button" class="btn btn-primary" (click)="updateComplexe()">Create terrain</button>
+    </div>
+  </a>
+</div>
 
 
 <!-- Hero -->

@@ -30,7 +30,12 @@ export class ComplexeUserDetailComponent {
       const id = params['id'];
       this.getComplexeById(id);
       this.getTerrain(id);
+      
     });
+
+
+    
+
   }
 
   ngOnDestroy(): void {
@@ -53,12 +58,6 @@ export class ComplexeUserDetailComponent {
     );
   }
 
-
-
-
-
-
-
   getTerrain(id : string): void {
     this.terrainService.getUserTerrain(id).subscribe({
   next: (data) => this.terrains = data,
@@ -69,8 +68,14 @@ export class ComplexeUserDetailComponent {
 
   }
 
-
-
+  updateComplexe(): void {
+    if (this.complexe?._id) {
+      this.router.navigate(['/app/compt/user/update', this.complexe._id]);
+    } else {
+      console.error('Complex ID is not defined.');
+      // Handle the case where complex ID is not available
+    }
+  }
 
 
   addTerrain(): void {
@@ -79,6 +84,8 @@ export class ComplexeUserDetailComponent {
   
   
     }
+
+
 
 
 

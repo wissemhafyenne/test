@@ -27,8 +27,8 @@ export class ComplexeService {
     return this.http.post<Complexe>(this.apiUrl, complexeData);
   }
 
-  patchComplexeById(id: string, complexeData: Partial<Complexe>): Observable<Complexe> {
-    return this.http.patch<Complexe>(`${this.apiUrl}complexe/${id}`, complexeData);
+  patchComplexeById(id: string, complexeData: FormData): Observable<Complexe> {
+    return this.http.patch<Complexe>(`${this.apiUrl}/update/${id}`, complexeData);
   }
 
   deleteComplexeById(id: string): Observable<{ message: string }> {

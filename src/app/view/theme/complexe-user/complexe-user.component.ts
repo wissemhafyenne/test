@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Complexe } from 'src/app/core/_modals/complexe';
 import { ComplexeService } from 'src/app/core/services/api/complexe.servive';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-complexe-user',
-
   templateUrl: './complexe-user.component.html',
   styleUrls: ['./complexe-user.component.scss']
+
 })
-export class ComplexeUserComponent  {
+export class ComplexeUserComponent implements OnInit {
 
 
   complexes: Complexe[] = [];
 
-  userId: string = '665af7fc3fb476cd0bbe9124'; // Replace with the actual user ID
+  userId: string = '665af7dc3fb476cd0bbe9122'; // Replace with the actual user ID
 
-  constructor(private complexeService: ComplexeService) {
+  constructor(private complexeService: ComplexeService, private router : Router) {
 
 
     
@@ -22,6 +24,7 @@ export class ComplexeUserComponent  {
 
   ngOnInit(): void {
     this.getComplexes();
+    this.addcomplexe
     
 
   }
@@ -33,28 +36,21 @@ export class ComplexeUserComponent  {
   next: (data) =>  {
     this.complexes = data
     console.log('user_id', this.userId)
-
+    console.log('data', data)
 
   },
 
   error: (err) => console.log(err)
     }
     );
-
-
-
-
-
-
-
-
-
-
   }
 
 
+  addcomplexe(): void {
 
+this.router.navigate(['/app/compt/user/add'])
 
+  }
 
 
 

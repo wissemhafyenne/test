@@ -2,20 +2,36 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TerrainService } from 'src/app/core/services/api/terrain.service';
 import { Router } from '@angular/router';
-
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-add-terrain',
 
   templateUrl: './add-terrain.component.html',
   styleUrls: ['./add-terrain.component.scss']
 })
-export class ADDTerrainComponent {
+export class ADDTerrainComponent  {
 
   photosPreview: string | ArrayBuffer | null = null;
   selectedFile: File | null = null;
-  complexeId: string = '667fd9325f5dc6139ca19440'; // Replace with actual complexe ID
+  complexeId: string | undefined;
+  routerSubscription: Subscription | undefined;
+  constructor(private terrainService: TerrainService, private router: Router,private activatedRoute: ActivatedRoute,) { }
 
-  constructor(private terrainService: TerrainService, private router: Router) { }
+  ngOnInit(): void {
+    this.routerSubscription = this.activatedRoute.params.subscribe((params) => {
+      this.complexeId = params['id'];
+
+    });
+
+
+  }
+
+  ngOnDestroy(): void {
+    this.routerSubscription?.unsubscribe();
+  }
+
+
 
   addTerrainForm = new FormGroup({
     Name: new FormControl(''),
@@ -65,7 +81,7 @@ export class ADDTerrainComponent {
   }
 
   addTerrain() {
-    if (this.addTerrainForm.valid) {
+    if (this.addTerrainForm.valid && this.complexeId)  {
       const formData = new FormData();
       formData.append('Name', this.addTerrainForm.get('Name')?.value);
       formData.append('description', this.addTerrainForm.get('description')?.value);

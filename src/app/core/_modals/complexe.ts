@@ -1,6 +1,7 @@
 export interface Complexe {
     _id?: string;
     Name: string;
+    photos: string;
     description: string;
     Address: string;
     Ville: string;
@@ -15,7 +16,7 @@ export interface Complexe {
       samedi: string;
       dimanche: string;
     };
-    photos: string;
+   
     TerrainId?: string[]; // Changer en string[]
     UserId: string;
     createdAt?: Date;

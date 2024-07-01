@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit,OnDestroy } from '@angular/core';
 import { Terrain } from 'src/app/core/_modals/terrain';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -11,7 +11,7 @@ import { Complexe } from 'src/app/core/_modals/complexe';
   templateUrl: './terrain-details.component.html',
   styleUrls: ['./terrain-details.component.scss']
 })
-export class TerrainDetailsComponent {
+export class TerrainDetailsComponent implements OnInit, OnDestroy {
 
   terrain: Terrain | undefined;
   routerSubscription: Subscription | undefined;

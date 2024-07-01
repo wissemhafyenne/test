@@ -151,7 +151,7 @@ const routes: Routes = [
       },
 
       {
-        path: 'compt/user/update',
+        path: 'compt/user/update/:id',
         component: CompUserUpdateComponent,
       },
 
