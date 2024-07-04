@@ -1,22 +1,19 @@
 <div class="container">
-  <br>
-  <br>
-
-  <div class="mt-5 text-center">
-    <h3>New Terrain</h3>
-   </div>
-
-    <form [formGroup]="addTerrainForm" (ngSubmit)="addTerrain()">
+    <br><br>
+    <div class="mt-5 text-center">
+      <h3>Update Terrain</h3>
+    </div>
+    <form [formGroup]="updateTerrainForm" (ngSubmit)="updateTerrain()">
       <div class="form-group">
-        <label for="Name">Name</label>
-        <input id="Name" formControlName="Name" type="text" class="form-control" />
+        <label for="Name">Nom du Terrain</label>
+        <input type="text" id="Name" formControlName="Name" class="form-control" />
       </div>
-      
+  
       <div class="form-group">
         <label for="description">Description</label>
-        <input id="description" formControlName="description" type="text" class="form-control" />
+        <textarea id="description" formControlName="description" class="form-control"></textarea>
       </div>
-      
+  
       <div class="form-group">
         <label for="Type">Type</label>
         <select id="Type" formControlName="Type" class="form-control">
@@ -30,9 +27,9 @@
           <option value="boxes">Boxes</option>
         </select>
       </div>
-      
-      <ng-container *ngIf="addTerrainForm.get('Type')?.value">
-        <ng-container *ngIf="['football', 'handball', 'Basket-Ball'].includes(addTerrainForm.get('Type')?.value)">
+  
+      <ng-container *ngIf="updateTerrainForm.get('Type')?.value">
+        <ng-container *ngIf="['football', 'handball', 'Basket-Ball'].includes(updateTerrainForm.get('Type')?.value)">
           <div class="form-group">
             <label for="Numero_terrain">Numéro de terrain</label>
             <input id="Numero_terrain" formControlName="Numero_terrain" type="text" class="form-control" />
@@ -63,54 +60,7 @@
           </div>
         </ng-container>
     
-        <ng-container *ngIf="addTerrainForm.get('Type')?.value === 'baseball'">
-          <div class="form-group">
-            <label for="Numero_terrain">Numéro de terrain</label>
-            <input id="Numero_terrain" formControlName="Numero_terrain" type="text" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="longueur">Longueur</label>
-            <input id="longueur" formControlName="longueur" type="text" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="largeur">Largeur</label>
-            <input id="largeur" formControlName="largeur" type="text" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="surface">Surface</label>
-            <input id="surface" formControlName="surface" type="text" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="surfaces_de_Jeu">Surfaces de Jeu</label>
-            <input id="surfaces_de_Jeu" formControlName="surfaces_de_Jeu" type="text" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="Hauteur_du_filet">Hauteur du Filet</label>
-            <input id="Hauteur_du_filet" formControlName="Hauteur_du_filet" type="text" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="Largeur_du_filet">Largeur du Filet</label>
-            <input id="Largeur_du_filet" formControlName="Largeur_du_filet" type="text" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="Zones_de_service">Zones de Service</label>
-            <input id="Zones_de_service" formControlName="Zones_de_service" type="text" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="Couloir_de_double">Couloir de Double</label>
-            <input id="Couloir_de_double" formControlName="Couloir_de_double" type="text" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="Capacite">Capacité</label>
-            <input id="Capacite" formControlName="Capacite" type="text" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="prix_par_Heure">Prix par Heure</label>
-            <input id="prix_par_Heure" formControlName="prix_par_Heure" type="text" class="form-control" />
-          </div>
-        </ng-container>
-    
-        <ng-container *ngIf="addTerrainForm.get('Type')?.value === 'tennis'">
+        <ng-container *ngIf="updateTerrainForm.get('Type')?.value === 'baseball'">
           <div class="form-group">
             <label for="Numero_terrain">Numéro de terrain</label>
             <input id="Numero_terrain" formControlName="Numero_terrain" type="text" class="form-control" />
@@ -157,7 +107,54 @@
           </div>
         </ng-container>
     
-        <ng-container *ngIf="addTerrainForm.get('Type')?.value === 'golf'">
+        <ng-container *ngIf="updateTerrainForm.get('Type')?.value === 'tennis'">
+          <div class="form-group">
+            <label for="Numero_terrain">Numéro de terrain</label>
+            <input id="Numero_terrain" formControlName="Numero_terrain" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="longueur">Longueur</label>
+            <input id="longueur" formControlName="longueur" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="largeur">Largeur</label>
+            <input id="largeur" formControlName="largeur" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="surface">Surface</label>
+            <input id="surface" formControlName="surface" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="surfaces_de_Jeu">Surfaces de Jeu</label>
+            <input id="surfaces_de_Jeu" formControlName="surfaces_de_Jeu" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="Hauteur_du_filet">Hauteur du Filet</label>
+            <input id="Hauteur_du_filet" formControlName="Hauteur_du_filet" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="Largeur_du_filet">Largeur du Filet</label>
+            <input id="Largeur_du_filet" formControlName="Largeur_du_filet" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="Zones_de_service">Zones de Service</label>
+            <input id="Zones_de_service" formControlName="Zones_de_service" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="Couloir_de_double">Couloir de Double</label>
+            <input id="Couloir_de_double" formControlName="Couloir_de_double" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="Capacite">Capacité</label>
+            <input id="Capacite" formControlName="Capacite" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="prix_par_Heure">Prix par Heure</label>
+            <input id="prix_par_Heure" formControlName="prix_par_Heure" type="text" class="form-control" />
+          </div>
+        </ng-container>
+    
+        <ng-container *ngIf="updateTerrainForm.get('Type')?.value === 'golf'">
           <div class="form-group">
             <label for="Nombre_de_trous">Nombre de Trous</label>
             <input id="Nombre_de_trous" formControlName="Nombre_de_trous" type="text" class="form-control" />
@@ -184,7 +181,7 @@
           </div>
         </ng-container>
     
-        <ng-container *ngIf="addTerrainForm.get('Type')?.value === 'natation'">
+        <ng-container *ngIf="updateTerrainForm.get('Type')?.value === 'natation'">
           <div class="form-group">
             <label for="Profondeur">Profondeur</label>
             <input id="Profondeur" formControlName="Profondeur" type="text" class="form-control" />
@@ -211,7 +208,7 @@
           </div>
         </ng-container>
     
-        <ng-container *ngIf="addTerrainForm.get('Type')?.value === 'boxes'">
+        <ng-container *ngIf="updateTerrainForm.get('Type')?.value === 'boxes'">
           <div class="form-group">
             <label for="Longueur_du_ring">Longueur du Ring</label>
             <input id="Longueur_du_ring" formControlName="Longueur_du_ring" type="text" class="form-control" />
@@ -243,11 +240,10 @@
         <label for="photos">Photos</label>
         <input id="photos" type="file" (change)="onFileChange($event)" class="form-control" />
       </div>
-      
-
-
+  
       <div class="mt-5 text-center">
-      <button type="submit" class="btn btn-primary" [disabled]="!addTerrainForm.valid">Ajout</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!updateTerrainForm.valid">Update</button>
       </div>
-  </form>
- </div>
+    </form>
+  </div>
+  

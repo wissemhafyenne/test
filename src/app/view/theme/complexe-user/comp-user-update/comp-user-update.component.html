@@ -1,9 +1,13 @@
 <div class="container">
+
+  <br>
+  <br>
+  <br>
   <h2>Update Complex</h2>
   
   <form [formGroup]="updateComplexeForm" (ngSubmit)="updateComplexe()">
     <div class="form-group">
-      <label for="Name">Name:</label>
+      <label for="Name">NOM:</label>
       <input type="text" id="Name" formControlName="Name" class="form-control">
     </div>
 
@@ -13,27 +17,28 @@
     </div>
 
     <div class="form-group">
+      <label for="Pays">Pays:</label>
+      <input type="text" id="Pays" formControlName="Pays" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="Ville">Ville:</label>
+      <input type="text" id="Ville" formControlName="Ville" class="form-control">
+    </div>
+
+    <div class="form-group">
       <label for="Address">Address:</label>
       <input type="text" id="Address" formControlName="Address" class="form-control">
     </div>
 
     <div class="form-group">
-      <label for="Ville">City:</label>
-      <input type="text" id="Ville" formControlName="Ville" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label for="Code_postale">Postal Code:</label>
+      <label for="Code_postale">Code postale:</label>
       <input type="text" id="Code_postale" formControlName="Code_postale" class="form-control">
     </div>
-
+    <br>
+    <label>Horaires d'Ouverture:</label>
     <div class="form-group">
-      <label for="Pays">Country:</label>
-      <input type="text" id="Pays" formControlName="Pays" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label>Opening Hours:</label>
+      <br>
       <div formGroupName="horairesOuverture" class="opening-hours">
         <div class="day" *ngFor="let day of ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']">
           <label [for]="day">{{ day | titlecase }}:</label>
@@ -44,10 +49,7 @@
 
     <div class="form-group">
       <label for="photos">Photos:</label>
-      <input type="file" id="photos" (change)="onFileChange($event)" class="form-control-file">
-      <div *ngIf="photosPreview">
-        <img [src]="photosPreview" alt="Photo Preview" class="img-thumbnail mt-2">
-      </div>
+      <input type="file" id="photos" (change)="onFileChange($event)" class="form-control">
     </div>
 
     <button type="submit" class="btn btn-primary">Update Complex</button>

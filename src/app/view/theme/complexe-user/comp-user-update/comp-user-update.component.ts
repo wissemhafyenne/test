@@ -3,13 +3,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComplexeService } from 'src/app/core/services/api/complexe.servive';
 import { Complexe } from 'src/app/core/_modals/complexe';
+import imageCompression from 'browser-image-compression';
 @Component({
   selector: 'app-comp-user-update',
 
   templateUrl: './comp-user-update.component.html',
   styleUrls: ['./comp-user-update.component.scss']
 })
-export class CompUserUpdateComponent  {
+export class CompUserUpdateComponent implements OnInit {
   updateComplexeForm: FormGroup;
   complexeId: string | null = null;
   photosPreview: string | ArrayBuffer | null = null;
@@ -20,15 +21,16 @@ export class CompUserUpdateComponent  {
   constructor(
     private route: ActivatedRoute,
     private complexeService: ComplexeService,
-    private router: Router
-  )  {
+    private router: Router,
+
+  ) {
     this.updateComplexeForm = new FormGroup({
       Name: new FormControl('', Validators.required),
       description: new FormControl(''),
-      Address: new FormControl(''),
-      Ville: new FormControl(''),
-      Code_postale: new FormControl(''),
       Pays: new FormControl(''),
+      Ville: new FormControl(''),
+      Address: new FormControl(''),
+      Code_postale: new FormControl(''),
       horairesOuverture: new FormGroup({
         lundi: new FormControl(''),
         mardi: new FormControl(''),
@@ -59,15 +61,14 @@ export class CompUserUpdateComponent  {
         this.updateComplexeForm.patchValue({
           Name: complexe.Name,
           description: complexe.description,
-          Address: complexe.Address,
-          Ville: complexe.Ville,
-          Code_postale: complexe.Code_postale,
           Pays: complexe.Pays,
+          Ville: complexe.Ville,
+          Address: complexe.Address,
+          Code_postale: complexe.Code_postale,
           horairesOuverture: complexe.horairesOuverture
         });
         this.existingPhoto = complexe.photos; // Assuming `photos` contains the URL or path of the existing photo
         this.photosPreview = this.existingPhoto;
-
       },
       error => {
         console.error('Error loading complexe:', error);
@@ -75,18 +76,34 @@ export class CompUserUpdateComponent  {
     );
   }
 
-  onFileChange(event: Event): void {
+
+  async onFileChange(event: Event): Promise<void> {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
-
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.photosPreview = reader.result;
-      };
-      reader.readAsDataURL(this.selectedFile);
+  
+      try {
+        const options = {
+          maxSizeMB: 0.5, // Reduce the size further if needed
+          maxWidthOrHeight: 1280, // Adjust dimensions as necessary
+          useWebWorker: true
+        };
+        const compressedFile = await imageCompression(this.selectedFile, options);
+  
+        const reader = new FileReader();
+        reader.onload = () => {
+          this.photosPreview = reader.result;
+        };
+        reader.readAsDataURL(compressedFile);
+      } catch (error) {
+        console.error('Error compressing file:', error);
+      }
     }
   }
+  
+
+
+
 
   updateComplexe(): void {
     if (this.complexeId && this.updateComplexeForm.valid) {

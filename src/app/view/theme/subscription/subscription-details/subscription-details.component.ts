@@ -14,6 +14,7 @@ import { HttpStatus } from '../../../../core/constants/http-status';
 @Component({
   selector: 'app-album-details',
   templateUrl: './subscription-details.component.html'
+  
 })
 export class AlbumDetailsComponent implements OnInit {
 

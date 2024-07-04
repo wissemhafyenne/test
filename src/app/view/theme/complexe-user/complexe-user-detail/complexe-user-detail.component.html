@@ -3,7 +3,11 @@
   class="hero"
   *ngIf="complexe?.photos"
   [ngStyle]="{ 'background-image': 'url(' + complexe?.photos + ')' }"
-></div>
+>
+  <div class="hero-overlay">
+    <h1>{{ complexe?.Name }}</h1>
+  </div>
+</div>
 
 <!-- Start:: under hero [[ Find at scss/framework/hero.scss ]] -->
 <div class="under-hero container">
@@ -17,14 +21,14 @@
     <div class="list" *ngIf="complexe">
       <div class="row">
         <div class="col-md-6">
-          <h2 class="complexe-title" *ngIf="complexe?.Name" >{{ complexe?.Name }}</h2>
-          <p class="complexe-description"*ngIf="complexe?.description">{{ complexe?.description }}</p>
+          <h2 class="complexe-title" *ngIf="complexe?.Name">{{ complexe?.Name }}</h2>
+          <p class="complexe-description" *ngIf="complexe?.description">{{ complexe?.description }}</p>
           <ul class="complexe-details list-unstyled">
             <li *ngIf="complexe?.Name"><strong>Nom:</strong> {{ complexe?.Name }}</li>
-            <li *ngIf="complexe?.Address"><strong>Adresse:</strong> {{ complexe?.Address }}</li>
-            <li *ngIf="complexe?.Ville"><strong>Ville:</strong> {{ complexe?.Ville }}</li>
-            <li *ngIf="complexe?.Code_postale"><strong>Code Postal:</strong> {{ complexe?.Code_postale }}</li>
             <li *ngIf="complexe?.Pays"><strong>Pays:</strong> {{ complexe?.Pays }}</li>
+            <li *ngIf="complexe?.Ville"><strong>Ville:</strong> {{ complexe?.Ville }}</li>
+            <li *ngIf="complexe?.Address"><strong>Adresse:</strong> {{ complexe?.Address }}</li>
+            <li *ngIf="complexe?.Code_postale"><strong>Code Postal:</strong> {{ complexe?.Code_postale }}</li>
             <li *ngIf="complexe?.horairesOuverture">
               <strong>Horaires d'Ouverture:</strong>
               <ul>
@@ -52,58 +56,33 @@
     <div class="list" *ngIf="!complexe">
       <p>Loading complexe details...</p>
     </div>
-    <!-- End:: list -->
-
-    <div class="mt-5 text-center">
-      <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
-        <div class="btn__wrap">
-          <i class="ri-loader-3-fill"></i>
-          <span>Load more</span>
-          <br>
-        </div>
-      </a>
-    </div>
-
-    <div class="mt-5 text-center">
-      <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
-        <div class="btn__wrap">
-
-
-        </div>
-      </a>
-    </div>
-
-
-
-
   </div>
 </div>
 
-<div class="mt-5 text-center">
-  <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
-    <div class="btn__wrap">
-      <button type="button" class="btn btn-primary" (click)="updateComplexe()">Create terrain</button>
-    </div>
-  </a>
-</div>
 
-
-<!-- Hero -->
-<div class="hero"></div>
-
+<br>
 <!-- Start:: under hero [[ Find at scss/framework/hero.scss ]] -->
 <div class="under-hero container">
   <!-- Start:: Carousel -->
   <div id="terrainCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item" *ngFor="let terrain of terrains; let i = index" [ngClass]="{'active': i === 0}">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>{{ terrain.Name }}</h5>
-          <img [src]="terrain.photos" alt="{{ terrain.Name }}" class="d-block w-100">
-          <a class="btn btn-primary mt-3" [routerLink]="['terrain/user', terrain._id, 'details']">Voir les détails</a>
+
+      <div id="complexCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let terrain of terrains; let i = index" [ngClass]="{'active': i === 0}">
+            <div class="carousel-content">
+              <img [src]="terrain.photos" alt="{{ terrain.Name }}" class="d-block w-100 carousel-img">
+              <div class="carousel-overlay"></div>
+              <div class="carousel-caption">
+                <h4>{{ terrain.Name }}</h4>
+                <h3>{{ terrain.Type }}</h3>
+                <span class="price">{{ terrain.prix_par_Heure }} </span>
+                <a class="btn btn-primary" [routerLink]="['/terrain/user', terrain._id, 'details']"> Voir les détails</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#terrainCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -140,11 +119,18 @@
 
 
 
+<div class="mt-5 text-center">
+
+  <button type="button" class="btn btn-primary circular-btn" (click)="addTerrain()">+</button>
+</div>
+
+
+
 
 <div class="mt-5 text-center">
   <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
     <div class="btn__wrap">
-      <button type="button" class="btn btn-primary" (click)="addTerrain()">Create terrain</button>
+      <button type="button" class="btn btn-primary" (click)="updateComplexe()">Create terrain</button>
     </div>
   </a>
 </div>

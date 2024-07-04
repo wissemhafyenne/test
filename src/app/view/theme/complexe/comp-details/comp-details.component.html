@@ -63,19 +63,6 @@
         </div>
       </a>
     </div>
-
-    <div class="mt-5 text-center">
-      <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
-        <div class="btn__wrap">
-
-          <button type="button" class="btn btn-primary" (click)="complexe && deleteComplexe(complexe?._id ?? '')">Delete</button>
-        </div>
-      </a>
-    </div>
-
-
-
-
   </div>
 
 
@@ -87,3 +74,60 @@
 <!-- End:: under hero -->
 
 
+
+<br>
+<!-- Start:: under hero [[ Find at scss/framework/hero.scss ]] -->
+<div class="under-hero container">
+  <!-- Start:: Carousel -->
+  <div id="terrainCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <div id="complexCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let terrain of Terrains; let i = index" [ngClass]="{'active': i === 0}">
+            <div class="carousel-content">
+              <img [src]="terrain.photos" alt="{{ terrain.Name }}" class="d-block w-100 carousel-img">
+              <div class="carousel-overlay"></div>
+              <div class="carousel-caption">
+                <h4>{{ terrain.Name }}</h4>
+                <h3>{{ terrain.Type }}</h3>
+                <span class="price">{{ terrain.prix_par_Heure }} </span>
+                <a class="btn btn-primary" [routerLink]="['/complexe/Terrain/', terrain._id, 'details']"> Voir les détails</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#terrainCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#terrainCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- End:: Carousel -->
+</div>
+<!-- End:: under hero -->
+
+<!-- Section for Terrains List -->
+<div class="section" *ngIf="Terrains.length">
+  <div class="section__head">
+    <h2 class="mb-0">Liste des <span class="text-primary">Terrains</span></h2>
+  </div>
+  <div class="row g-4">
+    <div class="col-xl-3 col-sm-6" *ngFor="let terrain of Terrains">
+      <a [routerLink]="['/complexe/Terrain/', terrain._id, 'details']" class="terrain-link">
+        <app-cluster-view
+          [data]="{
+            cover: terrain.photos,
+            name: terrain.Name,
+            detailsRoute: '/complexe/Terrain/' + terrain._id + '/details'
+        }"
+          [viewData]="false"
+        ></app-cluster-view>
+      </a>
+    </div>
+  </div>
+</div>

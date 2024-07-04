@@ -21,10 +21,11 @@ export class CompUserAddComponent {
   addComplexeForm = new FormGroup({
     Name: new FormControl(''),
     description: new FormControl(''),
+    Pays: new FormControl(''),  
+    Ville: new FormControl(''),      
     Address: new FormControl(''),
-    Ville: new FormControl(''),
     Code_postale: new FormControl(''),
-    Pays: new FormControl(''),
+
     horairesOuverture: new FormGroup({
       lundi: new FormControl(''),
       mardi: new FormControl(''),
@@ -45,20 +46,20 @@ export class CompUserAddComponent {
     return this.addComplexeForm.get('description');
   }
 
-  get Address() {
-    return this.addComplexeForm.get('Address');
+  get Pays() {
+    return this.addComplexeForm.get('Pays');
   }
 
   get Ville() {
     return this.addComplexeForm.get('Ville');
   }
 
-  get Code_postale() {
-    return this.addComplexeForm.get('Code_postale');
+  get Address() {
+    return this.addComplexeForm.get('Address');
   }
 
-  get Pays() {
-    return this.addComplexeForm.get('Pays');
+  get Code_postale() {
+    return this.addComplexeForm.get('Code_postale');
   }
 
   get horairesOuverture() {
@@ -86,10 +87,10 @@ export class CompUserAddComponent {
       const formData = new FormData();
       formData.append('Name', this.addComplexeForm.get('Name')?.value);
       formData.append('description', this.addComplexeForm.get('description')?.value);
-      formData.append('Address', this.addComplexeForm.get('Address')?.value);
-      formData.append('Ville', this.addComplexeForm.get('Ville')?.value);
-      formData.append('Code_postale', this.addComplexeForm.get('Code_postale')?.value);
       formData.append('Pays', this.addComplexeForm.get('Pays')?.value);
+      formData.append('Ville', this.addComplexeForm.get('Ville')?.value);
+      formData.append('Address', this.addComplexeForm.get('Address')?.value);
+      formData.append('Code_postale', this.addComplexeForm.get('Code_postale')?.value);
       formData.append('horairesOuverture', JSON.stringify(this.addComplexeForm.get('horairesOuverture')?.value));
       formData.append('UserId', this.UserId); // Ajouter l'ID de l'utilisateur statique
       if (this.selectedFile) {

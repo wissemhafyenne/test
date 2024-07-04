@@ -78,10 +78,19 @@ export class ComplexeUserDetailComponent {
   }
 
 
-  addTerrain(): void {
   
-    this.router.navigate(['/app/terrain/user/add']);
-  
+    addTerrain(): void {
+      if (this.complexe?._id) {
+        this.router.navigate(['/app/terrain/user/add', this.complexe._id]);
+      } else {
+        console.error('Complex ID is not defined.');
+        // Handle the case where complex ID is not available
+      }
+    }
+
+
+
+
   
     }
 
@@ -97,5 +106,5 @@ export class ComplexeUserDetailComponent {
 
 
   
-}
+
 

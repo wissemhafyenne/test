@@ -1,12 +1,11 @@
 export interface Complexe {
     _id?: string;
     Name: string;
-    photos: string;
     description: string;
+    Pays: string; 
+    Ville: string;    
     Address: string;
-    Ville: string;
     Code_postale: string;
-    Pays: string;
     horairesOuverture: {
       lundi: string;
       mardi: string;
@@ -16,6 +15,7 @@ export interface Complexe {
       samedi: string;
       dimanche: string;
     };
+    photos: string;    
    
     TerrainId?: string[]; // Changer en string[]
     UserId: string;

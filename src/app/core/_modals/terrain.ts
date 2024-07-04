@@ -5,14 +5,14 @@ export interface Terrain {
   Name: string;
   description: string;
   Type?: 'football' | 'handball' | 'Basket-Ball' | 'baseball' | 'tennis' | 'golf' | 'natation' | 'boxes';
+ 
+  Numero_terrain: string; 
   longueur: string;
   largeur: string;
   surface: string;
-  Numero_terrain: string;
   Capacite: string;
-  prixparHeure: string;
-  disponibilite: string;
   nature_terrain: string;
+//option par type -------------------
   hauteur_Panier: string;
   surfaces_de_Jeu: string;
   Hauteur_du_filet: string;
@@ -29,6 +29,8 @@ export interface Terrain {
   Longueur_du_ring: string;
   Largeur_du_ring: string;
   Hauteur_du_ring: string;
+  //--------------------------------------
+  prix_par_Heure: string;
   photos: string;
   complexeId: string; // Représente l'identifiant de l'objet complexe
   Equipement?: string[]; // Liste d'identifiants pour les équipements

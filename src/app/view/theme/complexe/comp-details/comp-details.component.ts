@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { ComplexeService } from '../../../../core/services/api/complexe.servive';
 import { Complexe } from '../../../../core/_modals/complexe';
 import { Router } from '@angular/router';
+import { TerrainService } from 'src/app/core/services/api/terrain.service';
+import { Terrain } from 'src/app/core/_modals/terrain';
 @Component({
   selector: 'app-comp-details',
   templateUrl: './comp-details.component.html',
@@ -12,11 +14,13 @@ import { Router } from '@angular/router';
 
 export class CompDetailsComponent  {
   complexe: Complexe | undefined;
+  Terrains: Terrain[] = [];
   routerSubscription: Subscription | undefined;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private complexeService: ComplexeService,
+    private terrainService: TerrainService,
     private router: Router
   ) {}
 
@@ -24,6 +28,7 @@ export class CompDetailsComponent  {
     this.routerSubscription = this.activatedRoute.params.subscribe((params) => {
       const id = params['id'];
       this.getComplexeById(id);
+      this.getTerrain(id);
     });
   }
 
@@ -47,22 +52,19 @@ export class CompDetailsComponent  {
   }
 
 
-  deleteComplexe(id: string): void {
-    this.complexeService.deleteComplexeById(id).subscribe(
-      (response) => {
-        if (response && response.message) {
-          console.log('Complexe deleted:', response.message);
-          // Redirigez vers une autre route après la suppression réussie
-            this.router.navigate(['/app/complexe']);
-        } else {
-          console.error('No complexe found with the provided ID.');
-        }
-      },
-      (error) => {
-        console.error('Error deleting complexe:', error);
-      }
+  getTerrain(id : string): void {
+    this.terrainService.getUserTerrain(id).subscribe({
+  next: (data) => {this.Terrains = data,
+  console.log('id',id)},
+  error: (err) => console.log(err)
+
+    }
     );
+
   }
+
+
+
 }
 
 

@@ -1,81 +1,121 @@
-<!-- Hero -->
-<div class="hero" style="background-image: url(../../../../assets/images/complexe/background.png);"></div>
-
-  <!-- Start:: Carousel -->
-  <div id="complexCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="section__head">
-        <h2 class="mt-5 text-center">Welcome To Home </h2>
-      </div>
+<!-- Hero Section -->
 
 
+<!-- About Section -->
+<section class="about">
+  <div class="container">
+    <h2>À propos de notre plateforme</h2>
+    <p>Cette plateforme vous permet de gérer tous vos complexes sportifs en un seul endroit. Suivez les réservations, gérez les terrains, et améliorez l'expérience de vos clients.</p>
+  </div>
+</section>
 
-      <div id="carouselExample" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item" *ngFor="let complexe of complexes; let i = index" [ngClass]="{'active': i === 0}">
-            <div class="carousel-content">
-              <img [src]="complexe.photos" alt="{{ complexe.Name }}" class="d-block w-100 carousel-img">
-              <div class="carousel-overlay"></div>
-              <div class="carousel-caption">
-                <h3>{{ complexe.Name }}</h3>
-                <p>{{ complexe.Ville }}</p>
-                <span class="price">{{ complexe.Address }} €</span>
-                <a class="btn btn-primary" [routerLink]="['/compt/user', complexe._id, 'details']">Voir les détails</a>
-              </div>
-            </div>
-          </div>
+<!-- Complexes Carousel -->
+<div id="complexCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let complexe of complexes; let i = index" [ngClass]="{'active': i === 0}">
+      <div class="carousel-content">
+        <img [src]="complexe.photos" alt="{{ complexe.Name }}" class="d-block w-100 carousel-img">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-caption">
+          <h4>{{ complexe.Name }}</h4>
+          <span class="location">{{ complexe.Ville }}</span>
+          <a class="btn btn-primary" [routerLink]="['/compt/user', complexe._id, 'details']">Voir les détails</a>
         </div>
       </div>
-      
-      
-    
-    
-    
-
-
-
-
     </div>
-
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#complexCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#complexCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
-  <!-- End:: Carousel -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#complexCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#complexCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
-<!-- End:: under hero -->
-<br>
-<!-- Section for Complexes List -->
-<div class="section" *ngIf="complexes.length">
-  <div class="section__head">
-    <h3 > <span class="text-primary">Liste des Complexes</span></h3>
+<!-- Complexes List Section -->
+<section class="complexes-list">
+  <div class="container">
+    <h2>Liste des Complexes</h2>
+    <div class="row g-4">
+      <div class="col-xl-3 col-sm-6" *ngFor="let complexe of complexes">
+        <a [routerLink]="['/compt/user/', complexe._id]" class="complexe-link">
+          <app-cluster-view
+            [data]="{
+              cover: complexe.photos,
+              name: complexe.Name,
+              detailsRoute: '/compt/user/' + complexe._id + '/details'
+            }"
+            [viewData]="false"
+          ></app-cluster-view>
+        </a>
+      </div>
+    </div>
   </div>
-  <div class="row g-4">
-    <div class="col-xl-3 col-sm-6" *ngFor="let complexe of complexes">
-      <a [routerLink]="['/compt/user', complexe._id]" class="complexe-link">
+</section>
 
-        <app-cluster-view
-          [data]="{
-            cover: complexe.photos,
-            name: complexe.Name,
-            detailsRoute: '/compt/user/' + complexe._id + '/details'
-        }"
-          [viewData]="false"
-        ></app-cluster-view>
-      </a>
+<!-- Call to Action -->
+<div class="cta text-center">
+  <button type="button" class="btn btn-primary circular-btn" (click)="addcomplexe()">+</button>
+</div>
+
+
+
+<!-- Contact Section -->
+<section class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2 class="contact-title">Contactez-nous</h2>
+        <p class="contact-description">Pour toute question ou information supplémentaire, n'hésitez pas à nous contacter.</p>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> 123 Rue des Sports, Ville, Pays</li>
+          <li><i class="fas fa-phone"></i> (+216)27 658 811</li>
+          <li><i class="fas fa-envelope"></i> info@Areanabocker.com</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="name" placeholder="Votre nom" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Votre email" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="Votre message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-section">
+  <div class="container">
+    <img src="../../../../assets/images/logos/logo.svg" alt="Logo" class="logo">
+    <div class="description">
+      <p>
+        Êtes-vous un fan de sport? <strong>Notre application Areanabocker</strong> permet au gestionnaire de complexe de créer des complexes et des terrains avec différents types de sports et de partager toutes les informations afin d'obtenir une réservation optimale.
+      </p>
+    </div>
+    <div class="contact-info">
+      <p><i class="fas fa-phone-alt"></i> (+216) 27 658 811</p>
+      <p><i class="fas fa-envelope"></i> contact@Areanabocker.tn</p>
+      <p><i class="fas fa-clock"></i> J7/7</p>
+    </div>
+    <div class="social-media">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 </div>
 
 
-<div class="mt-5 text-center">
 
-      <button type="button" class="btn btn-primary circular-btn" (click)="addcomplexe()">+</button>
-</div>
 

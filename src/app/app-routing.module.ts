@@ -11,24 +11,52 @@ import { CompDetailsComponent } from './view/theme/complexe/comp-details/comp-de
 import { ComplexeUserDetailComponent } from './view/theme/complexe-user/complexe-user-detail/complexe-user-detail.component';
 import { TerrainDetailsComponent } from './view/theme/complexe-user/complexe-user-detail/terrain-details/terrain-details.component';
 import { CompUserUpdateComponent } from './view/theme/complexe-user/comp-user-update/comp-user-update.component';
+import { ADDTerrainComponent } from './view/theme/complexe-user/complexe-user-detail/add-terrain/add-terrain.component';
+import { UpdateTerrainComponent } from './view/theme/complexe-user/complexe-user-detail/update-terrain/update-terrain.component';
+import { TerrainComponent } from './view/theme/complexe/comp-details/terrain/terrain.component';
 //
 // Initial routes
 const routes: Routes = [
   { path: 'event/add', component: AddEventComponent },
   { path: 'event/:id/details', component: EvenementDetailsComponent },
-  { path: 'complexe/:id/details', component: CompDetailsComponent },
-  {
-    path: 'terrain/user/:id/details',
-    component: TerrainDetailsComponent,
+ 
+ 
+  { path: 'complexe/:id/details',
+     component: CompDetailsComponent,
+   },
+
+   {
+    path: 'complexe/Terrain/:id/details',
+    component: TerrainComponent,
   },
+
+
   {
     path: 'compt/user/update/:id',
     component: CompUserUpdateComponent,
   },
+  
   {
     path: 'compt/user/:id/details',
     component: ComplexeUserDetailComponent,
   },
+
+  {
+    path: 'terrain/user/:id/details',
+    component: TerrainDetailsComponent,
+  },
+
+  {
+    path: 'terrain/user/add/:id',
+    component: ADDTerrainComponent,
+  },
+
+  {
+    path: 'terrain/user/update/:id',
+    component: UpdateTerrainComponent,
+  },
+
+
   {
     path: '',
     loadChildren: () =>
