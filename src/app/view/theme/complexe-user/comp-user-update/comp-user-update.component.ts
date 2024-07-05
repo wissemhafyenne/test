@@ -84,8 +84,8 @@ export class CompUserUpdateComponent implements OnInit {
   
       try {
         const options = {
-          maxSizeMB: 0.5, // Reduce the size further if needed
-          maxWidthOrHeight: 1280, // Adjust dimensions as necessary
+          maxSizeMB: 0.2, // Further reduce the size if needed
+          maxWidthOrHeight: 800, // Adjust dimensions as necessary
           useWebWorker: true
         };
         const compressedFile = await imageCompression(this.selectedFile, options);

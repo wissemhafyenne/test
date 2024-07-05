@@ -6,6 +6,31 @@ export class Constant {
   //
   // Start: navbar array
   public static navbar = [
+
+    {
+      head: 'Complexe',
+    },
+
+    {
+      name: 'Home',
+      icon: '<i class="ri-home-4-line fs-5"></i>',
+      link: '/app/compt/user',
+    },
+
+    {
+      name: 'Créer nouvelle complexe',
+      icon: '<i class="ri-add-circle-line fs-5"></i>',
+      link: '/app/compt/user/add',
+    },
+
+
+
+
+
+
+
+
+
     {
       name: 'Home',
       icon: '<i class="ri-home-4-line fs-5"></i>',

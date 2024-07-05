@@ -82,6 +82,12 @@ export class TerrainDetailsComponent implements OnInit, OnDestroy {
   }
 
 
+  addEquipemment(): void {
+
+    this.router.navigate(['/app/travail dhia'])
+    
+      }
+
 
 
 }

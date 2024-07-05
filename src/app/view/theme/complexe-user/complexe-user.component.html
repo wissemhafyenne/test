@@ -17,8 +17,8 @@
         <img [src]="complexe.photos" alt="{{ complexe.Name }}" class="d-block w-100 carousel-img">
         <div class="carousel-overlay"></div>
         <div class="carousel-caption">
-          <h4>{{ complexe.Name }}</h4>
-          <span class="location">{{ complexe.Ville }}</span>
+          <h4>Nom : {{ complexe.Name }}</h4>
+          <span class="location">Ville : {{ complexe.Ville }}</span>
           <a class="btn btn-primary" [routerLink]="['/compt/user', complexe._id, 'details']">Voir les détails</a>
         </div>
       </div>
@@ -57,6 +57,7 @@
 
 <!-- Call to Action -->
 <div class="cta text-center">
+  <h4>Add Complexe</h4>
   <button type="button" class="btn btn-primary circular-btn" (click)="addcomplexe()">+</button>
 </div>
 

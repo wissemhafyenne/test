@@ -68,6 +68,16 @@ export class ComplexeUserDetailComponent {
 
   }
 
+
+    addTerrain(): void {
+      if (this.complexe?._id) {
+        this.router.navigate(['/app/terrain/user/add', this.complexe._id]);
+      } else {
+        console.error('Complex ID is not defined.');
+        // Handle the case where complex ID is not available
+      }
+    }
+
   updateComplexe(): void {
     if (this.complexe?._id) {
       this.router.navigate(['/app/compt/user/update', this.complexe._id]);
@@ -78,15 +88,35 @@ export class ComplexeUserDetailComponent {
   }
 
 
-  
-    addTerrain(): void {
-      if (this.complexe?._id) {
-        this.router.navigate(['/app/terrain/user/add', this.complexe._id]);
-      } else {
-        console.error('Complex ID is not defined.');
-        // Handle the case where complex ID is not available
-      }
+
+
+
+
+
+
+  deleteComplexe(): void {
+    if (this.complexe?._id) {
+      this.complexeService.deleteComplexeById(this.complexe._id).subscribe(
+        (response) => {
+          if (response && response.message) {
+            console.log('Complexe deleted:', response.message);
+            this.router.navigate(['/app/compt/user/']);
+          } else {
+            console.error('No Complexe found with the provided ID.');
+          }
+        },
+        (error) => {
+          console.error('Error deleting Complexe:', error);
+        }
+      );
+    } else {
+      console.error('Complex ID is not defined.');
     }
+  }
+
+
+  
+
 
 
 

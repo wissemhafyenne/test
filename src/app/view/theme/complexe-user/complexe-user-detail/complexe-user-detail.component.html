@@ -64,74 +64,86 @@
 <!-- Start:: under hero [[ Find at scss/framework/hero.scss ]] -->
 <div class="under-hero container">
   <!-- Start:: Carousel -->
-  <div id="terrainCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-
-      <div id="complexCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item" *ngFor="let terrain of terrains; let i = index" [ngClass]="{'active': i === 0}">
-            <div class="carousel-content">
-              <img [src]="terrain.photos" alt="{{ terrain.Name }}" class="d-block w-100 carousel-img">
-              <div class="carousel-overlay"></div>
-              <div class="carousel-caption">
-                <h4>{{ terrain.Name }}</h4>
-                <h3>{{ terrain.Type }}</h3>
-                <span class="price">{{ terrain.prix_par_Heure }} </span>
-                <a class="btn btn-primary" [routerLink]="['/terrain/user', terrain._id, 'details']"> Voir les détails</a>
-              </div>
-            </div>
-          </div>
+ <!-- Terrains Carousel -->
+<div id="terrainCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let terrain of terrains; let i = index" [ngClass]="{'active': i === 0}">
+      <div class="carousel-content">
+        <img [src]="terrain.photos" alt="{{ terrain.Name }}" class="d-block w-100 carousel-img">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-caption">
+          <h4>Nom : {{ terrain.Name }}</h4>
+          <h3>Type : {{ terrain.Type }}</h3>
+          <span class="price">Capacite : {{ terrain.Capacite }} </span>
+          <a class="btn btn-primary" [routerLink]="['/terrain/user', terrain._id, 'details']">Voir les détails</a>
         </div>
       </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#terrainCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#terrainCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    </div>
   </div>
-  <!-- End:: Carousel -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#terrainCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#terrainCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
-<!-- End:: under hero -->
 
-<!-- Section for Terrains List -->
-<div class="section" *ngIf="terrains.length">
-  <div class="section__head">
-    <h2 class="mb-0">Liste des <span class="text-primary">Terrains</span></h2>
+<!-- Terrains List Section -->
+<section class="terrains-list">
+  <div class="container">
+    <h2>Liste des Terrains</h2>
+    <div class="row g-4">
+      <div class="col-xl-3 col-sm-6" *ngFor="let terrain of terrains">
+        <a [routerLink]="['/terrain/user/', terrain._id]" class="terrain-link">
+          <app-cluster-view
+            [data]="{
+              cover: terrain.photos,
+              name: terrain.Name,
+              detailsRoute: '/terrain/user/' + terrain._id + '/details'
+            }"
+            [viewData]="false"
+          ></app-cluster-view>
+        </a>
+      </div>
+    </div>
   </div>
-  <div class="row g-4">
-    <div class="col-xl-3 col-sm-6" *ngFor="let terrain of terrains">
-      <a [routerLink]="['/terrain/user', terrain._id, 'details']" class="terrain-link">
-        <app-cluster-view
-          [data]="{
-            cover: terrain.photos,
-            name: terrain.Name,
-            detailsRoute: '/terrain/user/' + terrain._id + '/details'
-        }"
-          [viewData]="false"
-        ></app-cluster-view>
-      </a>
+</section>
+
+ <div class="mt-5 text-center">
+  <h4>ADD Terrain</h4>
+    <button type="button" class="btn btn-primary circular-btn" (click)="addTerrain()">+</button>
+ </div>
+ <br>
+  <div class="button-container">
+        <button type="button" class="update-button" (click)="updateComplexe()">Update Complexe</button>
+
+        <button type="button" class="update-button" (click)="deleteComplexe()">Delete complexe</button>
+  </div>
+  <br>
+ </div>
+ 
+
+
+ <div class="contact-section">
+  <div class="container">
+    <img src="../../../../assets/images/logos/logo.svg" alt="Logo" class="logo">
+    <div class="description">
+      <p>
+        Êtes-vous un fan de sport? <strong>Notre application Areanabocker</strong> permet au gestionnaire de complexe de créer des complexes et des terrains avec différents types de sports et de partager toutes les informations afin d'obtenir une réservation optimale.
+      </p>
+    </div>
+    <div class="contact-info">
+      <p><i class="fas fa-phone-alt"></i> (+216) 27 658 811</p>
+      <p><i class="fas fa-envelope"></i> contact@Areanabocker.tn</p>
+      <p><i class="fas fa-clock"></i> J7/7</p>
+    </div>
+    <div class="social-media">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 </div>
 
-
-
-<div class="mt-5 text-center">
-
-  <button type="button" class="btn btn-primary circular-btn" (click)="addTerrain()">+</button>
-</div>
-
-
-
-
-<div class="mt-5 text-center">
-  <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
-    <div class="btn__wrap">
-      <button type="button" class="btn btn-primary" (click)="updateComplexe()">Create terrain</button>
-    </div>
-  </a>
-</div>
 

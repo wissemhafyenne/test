@@ -1,24 +1,22 @@
 <div class="container">
-  <br>
-  <br>
+  <div class="form-wrapper">
+    <div class="mt-5 text-center">
+      <h3>New Terrain</h3>
+    </div>
 
-  <div class="mt-5 text-center">
-    <h3>New Terrain</h3>
-   </div>
-
-    <form [formGroup]="addTerrainForm" (ngSubmit)="addTerrain()">
+    <form [formGroup]="addTerrainForm" (ngSubmit)="addTerrain()" class="custom-form">
       <div class="form-group">
-        <label for="Name">Name</label>
+        <label for="Name" class="label">Name</label>
         <input id="Name" formControlName="Name" type="text" class="form-control" />
       </div>
-      
+
       <div class="form-group">
-        <label for="description">Description</label>
+        <label for="description" class="label">Description</label>
         <input id="description" formControlName="description" type="text" class="form-control" />
       </div>
-      
+
       <div class="form-group">
-        <label for="Type">Type</label>
+        <label for="Type" class="label">Type</label>
         <select id="Type" formControlName="Type" class="form-control">
           <option value="football">Football</option>
           <option value="handball">Handball</option>
@@ -240,14 +238,14 @@
       </ng-container>
     
       <div class="form-group">
-        <label for="photos">Photos</label>
+        <label for="photos" class="label">Photos</label>
         <input id="photos" type="file" (change)="onFileChange($event)" class="form-control" />
       </div>
-      
 
+  
+        <button type="submit" class="btn btn-primary" [disabled]="!addTerrainForm.valid">save</button>
 
-      <div class="mt-5 text-center">
-      <button type="submit" class="btn btn-primary" [disabled]="!addTerrainForm.valid">Ajout</button>
-      </div>
-  </form>
- </div>
+    </form>
+  </div>
+</div>
+

@@ -3,7 +3,11 @@
   class="hero"
   *ngIf="terrain?.photos"
   [ngStyle]="{ 'background-image': 'url(' + terrain?.photos + ')' }"
-></div>
+>
+  <div class="hero-overlay">
+    <h1>{{ terrain?.Name }}</h1>
+  </div>
+</div>
 
 <!-- Start:: under hero [[ Find at scss/framework/hero.scss ]] -->
 <div class="under-hero container">
@@ -47,7 +51,6 @@
             <li *ngIf="terrain?.prix_par_Heure"><strong>Prix par Heure:</strong> {{ terrain?.prix_par_Heure }}</li>
           </ul>
         </div>
-        
         <div class="col-md-6 text-center">
           <img
             *ngIf="terrain?.photos"
@@ -61,36 +64,45 @@
     <div class="list" *ngIf="!terrain">
       <p>Loading terrain details...</p>
     </div>
-    <!-- End:: list -->
-
-    <div class="mt-5 text-center">
-      <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
-        <div class="btn__wrap">
-          <i class="ri-loader-3-fill"></i>
-          <span>Load more</span>
-          <br>
-        </div>
-      </a>
-    </div>
-
-
- 
-    <div class="mt-5 text-center">
-        <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
-          <div class="btn__wrap">
-            <button type="button" class="btn btn-primary" (click)="terrain && deleteTerrain(terrain?._id ?? '')">Delete</button>
-          </div>
-        </a>
-      </div>
-    </div>
-    <!-- End:: section -->
   </div>
-  <!-- End:: under hero -->
+
+
+
+
+
+
 
   <div class="mt-5 text-center">
-    <a href="javascript:void(0);" class="btn btn-primary btn-load-more">
-      <div class="btn__wrap">
-        <button type="button" class="btn btn-primary" (click)="updateTerrain()">Create terrain</button>
-      </div>
-    </a>
+    <h4>Add Equipement</h4>
+      <button type="button" class="btn btn-primary circular-btn" (click)="addEquipemment()">+</button>
+   </div>
+   <br>
+    <div class="button-container">
+          <button type="button" class="update-button" (click)="updateTerrain()">Update Terrain</button>
+  
+          <button type="button" class="update-button" (click)="terrain && deleteTerrain(terrain?._id ?? '')">Delete Terrain</button>
+    </div>
+    <br>
+   
+</div>
+
+
+<div class="contact-section">
+  <div class="container">
+    <img src="../../../../assets/images/logos/logo.svg" alt="Logo" class="logo">
+    <div class="description">
+      <p>
+        Êtes-vous un fan de sport? <strong>Notre application Areanabocker</strong> permet au gestionnaire de complexe de créer des complexes et des terrains avec différents types de sports et de partager toutes les informations afin d'obtenir une réservation optimale.
+      </p>
+    </div>
+    <div class="contact-info">
+      <p><i class="fas fa-phone-alt"></i> (+216) 27 658 811</p>
+      <p><i class="fas fa-envelope"></i> contact@Areanabocker.tn</p>
+      <p><i class="fas fa-clock"></i> J7/7</p>
+    </div>
+    <div class="social-media">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
   </div>
+</div>

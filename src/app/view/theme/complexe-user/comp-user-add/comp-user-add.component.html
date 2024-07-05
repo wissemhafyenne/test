@@ -2,7 +2,7 @@
 <br>
 <div class="container">
     <div class="form-wrapper">
-      <h2>Créer un Nouveau Complexe</h2>
+      <h2>Créer Nouvelle Complexe</h2>
       <form [formGroup]="addComplexeForm" (ngSubmit)="listComplexes()" class="custom-form">
         <div class="form-group">
           <label for="Name">Nom</label>
@@ -38,6 +38,15 @@
             </small>
           </div>
           <div class="form-group col">
+            <label for="Address">Adresse</label>
+            <input id="Address" formControlName="Address" class="form-control" />
+            <small class="error-message" *ngIf="Address?.invalid && (Address?.dirty || Address?.touched)">
+              <span *ngIf="Address?.errors?.['required']">L'adresse est requise.</span>
+            </small>
+          </div>
+
+
+          <div class="form-group col">
             <label for="Code_postale">Code Postal</label>
             <input id="Code_postale" formControlName="Code_postale" class="form-control" />
             <small class="error-message" *ngIf="Code_postale?.invalid && (Code_postale?.dirty || Code_postale?.touched)">
@@ -46,13 +55,7 @@
           </div>
         </div>
   
-        <div class="form-group">
-          <label for="Address">Adresse</label>
-          <input id="Address" formControlName="Address" class="form-control" />
-          <small class="error-message" *ngIf="Address?.invalid && (Address?.dirty || Address?.touched)">
-            <span *ngIf="Address?.errors?.['required']">L'adresse est requise.</span>
-          </small>
-        </div>
+
   
         <div class="form-group opening-hours">
           <label>Horaires d'Ouverture:</label>
